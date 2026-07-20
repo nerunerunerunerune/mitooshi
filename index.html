@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みとおし｜発達が気になる子の無料サポートツール（視覚タイマー・絵スケジュール）</title>
+<meta name="description" content="発達が気になるお子さんと家族・先生のための無料ツール。のこり時間が見える視覚タイマー、1日の見通しを作る絵スケジュール、がんばり表。インストール不要・登録不要・送信なしで今すぐ使えます。">
+<link rel="canonical" href="https://mitooshi.kawatare.studio/">
+<meta name="theme-color" content="#2f9e8f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="みとおし">
+<meta property="og:title" content="みとおし｜発達が気になる子の無料サポートツール（視覚タイマー・絵スケジュール）">
+<meta property="og:description" content="発達が気になるお子さんと家族・先生のための無料ツール。のこり時間が見える視覚タイマー、1日の見通しを作る絵スケジュール、がんばり表。インストール不要・登録不要・送信なしで今すぐ使えます。">
+<meta property="og:url" content="https://mitooshi.kawatare.studio/">
+<meta property="og:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="みとおし｜発達が気になる子の無料サポートツール（視覚タイマー・絵スケジュール）">
+<meta name="twitter:description" content="発達が気になるお子さんと家族・先生のための無料ツール。のこり時間が見える視覚タイマー、1日の見通しを作る絵スケジュール、がんばり表。インストール不要・登録不要・送信なしで今すぐ使えます。">
+<meta name="twitter:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"みとおし","url":"https://mitooshi.kawatare.studio/","description":"発達が気になる子と家族・先生のための、無料の視覚支援ツール集。"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"視覚タイマー","url":"https://mitooshi.kawatare.studio/tool-visual-timer.html"},{"@type":"ListItem","position":2,"name":"絵スケジュール","url":"https://mitooshi.kawatare.studio/tool-picture-schedule.html"},{"@type":"ListItem","position":3,"name":"やることステップ","url":"https://mitooshi.kawatare.studio/tool-task-steps.html"},{"@type":"ListItem","position":4,"name":"きもちメーター","url":"https://mitooshi.kawatare.studio/tool-feelings.html"},{"@type":"ListItem","position":5,"name":"がんばり表","url":"https://mitooshi.kawatare.studio/tool-reward-chart.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"みとおしはどんなサイトですか？","acceptedAnswer":{"@type":"Answer","text":"発達が気になるお子さんと、その家族・先生のための無料ツール集です。のこり時間や1日の予定を『見てわかる』形にして、見通しをつくり、切り替えや自信づくりを助けます。"}},{"@type":"Question","name":"無料ですか？広告はありますか？","acceptedAnswer":{"@type":"Answer","text":"すべて無料・登録不要です。運営のため広告を掲載する場合がありますが、ツールの使い勝手を損なわないよう配慮します。"}},{"@type":"Question","name":"発達障害の診断や治療に使えますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。これらは日常の見通しづくりを助ける補助ツールで、医療・診断・治療の代わりではありません。お子さんに合う方法は専門家にもご相談ください。"}},{"@type":"Question","name":"データは安全ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。入力内容はお使いの端末内だけで処理され、サーバーに送信されません。予定などは同じ端末に保存され、次回も続きから使えます。"}}]}</script>
+<style>
+  :root{--bg:#f6f7f6;--card:#ffffff;--ink:#242a28;--ink-2:#5d6763;--muted:#9aa4a0;--line:#e6ebe8;
+    --brand:#2f9e8f;--brand-d:#25806f;--accent:#f2795f;--good:#2fa36b;--good-bg:#e6f5ec;
+    --shadow:0 1px 2px rgba(20,30,25,.04),0 8px 22px rgba(20,30,25,.06);}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f1413;--card:#18201e;--ink:#eef3f1;--ink-2:#a9b4b0;--muted:#7c8783;
+    --line:#28302e;--brand:#4cc3b2;--brand-d:#7ad6c8;--accent:#ff9b83;--good:#4cc38a;--good-bg:#153224;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.42);}}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.85;
+    font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:var(--brand);}
+  .sitebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;}
+  .sb-brand{display:flex;align-items:center;gap:9px;font-weight:800;text-decoration:none;color:var(--ink);font-size:16px;}
+  .sb-logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:16px;}
+  .sb-links{display:flex;gap:13px;font-size:14px;font-weight:700;} .sb-links a{text-decoration:none;color:var(--ink-2);} .sb-links a:hover{color:var(--brand);}
+  .wrap{max-width:900px;margin:0 auto;padding:24px 18px 70px;}
+  .hero{text-align:center;padding:22px 10px 6px;}
+  .hero h1{font-size:29px;margin:6px 0 12px;line-height:1.35;}
+  .hero p{font-size:15.5px;color:var(--ink-2);max-width:640px;margin:0 auto;}
+  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px;}
+  .chip{font-size:12.5px;font-weight:800;color:var(--good);background:var(--good-bg);padding:6px 13px;border-radius:20px;}
+  h2{font-size:21px;margin:40px 0 6px;} .lead2{color:var(--ink-2);font-size:14px;margin:0 0 14px;}
+  .tools{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;} @media(max-width:720px){.tools{grid-template-columns:1fr;}}
+  .tool{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);transition:.15s;}
+  .tool:hover{transform:translateY(-2px);border-color:var(--brand);}
+  .tool .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:26px;background:var(--bg);}
+  .tool h3{margin:13px 0 5px;font-size:18px;} .tool p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .tool .go{margin-top:11px;font-size:13.5px;font-weight:800;color:var(--brand);}
+  .use{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px;} @media(max-width:720px){.use{grid-template-columns:1fr;}}
+  .use .u{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;}
+  .use .u b{display:block;margin-bottom:5px;font-size:15px;} .use .u p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .use .u .to{margin-top:8px;font-size:12.5px;font-weight:800;color:var(--brand);}
+  .why{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px;} @media(max-width:720px){.why{grid-template-columns:1fr;}}
+  .why .w{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;} .why .w b{display:block;margin-bottom:4px;} .why .w p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .care{background:var(--good-bg);border:1px solid var(--line);border-radius:14px;padding:14px 17px;font-size:13px;color:var(--ink-2);margin:16px 0;}
+  .faq{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:6px 18px;}
+  .faq details{border-bottom:1px solid var(--line);padding:13px 0;} .faq details:last-child{border-bottom:none;}
+  .faq summary{font-weight:800;cursor:pointer;font-size:15px;} .faq p{font-size:13.5px;color:var(--ink-2);margin:8px 0 0;}
+  .crumb{font-size:12.5px;color:var(--muted);margin:2px 0 14px;} .crumb a{color:var(--ink-2);text-decoration:none;}
+  .page-h1{font-size:26px;margin:4px 0 6px;} .lead{font-size:15px;color:var(--ink-2);margin:0 0 20px;}
+  .cardp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);}
+  .prose h2{font-size:19px;margin:28px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line);} .prose h2:first-child{margin-top:4px;}
+  .prose p{margin:8px 0;font-size:14.5px;} .prose ul{margin:8px 0;padding-left:22px;} .prose li{margin:6px 0;font-size:14.5px;}
+  .prose dt{font-weight:800;font-size:14px;margin-top:12px;} .prose dd{margin:2px 0 0;font-size:14.5px;color:var(--ink-2);}
+  .cta{display:inline-block;text-decoration:none;font-weight:800;font-size:15px;padding:12px 22px;border-radius:13px;background:var(--brand);color:#fff;margin-top:8px;}
+  footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);text-align:center;line-height:2;}
+  footer a{color:var(--ink-2);text-decoration:none;margin:0 7px;}
+</style>
+</head>
+<body>
+<nav class="sitebar"><a class="sb-brand" href="index.html"><span class="sb-logo">🌱</span>みとおし</a><div class="sb-links"><a href="index.html">ツール一覧</a><a href="about.html">このサイトについて</a></div></nav>
+<div class="wrap">
+  <section class="hero">
+    <h1>見てわかるから、できる。</h1>
+    <p>発達が気になるお子さんと、その家族・先生のための無料ツール。「あと どれくらい？」「つぎは なに？」を<strong>見える形</strong>にして、見通しと安心をつくります。インストール不要、その場ですぐ、何度でも無料。</p>
+    <div class="chips"><span class="chip">🌱 登録不要・無料</span><span class="chip">📱 インストール不要</span><span class="chip">🔒 送信しない（端末内）</span></div>
+  </section>
+
+  <h2>ツール</h2>
+  <p class="lead2">どれもブラウザですぐ使えます。スマホ・タブレット・PC対応。</p>
+  <div class="tools">
+    <a class="tool" href="tool-visual-timer.html"><div class="ic">⏳</div><h3>視覚タイマー</h3><p>のこり時間が色の面積で見える。「もうすぐ終わり」が直感でわかり、切り替えの不安をやわらげます。</p><div class="go">使ってみる →</div></a>
+    <a class="tool" href="tool-picture-schedule.html"><div class="ic">📋</div><h3>絵スケジュール</h3><p>やることを絵カードで順番に。1日の見通しが見え、次の行動へ移りやすくなります。印刷もOK。</p><div class="go">使ってみる →</div></a>
+    <a class="tool" href="tool-task-steps.html"><div class="ic">🪜</div><h3>やることステップ</h3><p>歯みがきなどを小さな手順に分け、「つぎ」を強調。迷わず一つずつ進められます。テンプレ付き。</p><div class="go">使ってみる →</div></a>
+    <a class="tool" href="tool-feelings.html"><div class="ic">😊</div><h3>きもちメーター</h3><p>いまの気持ちを顔で選び、強さも表示。言葉にしにくい感情を見える化し、伝えるきっかけに。</p><div class="go">使ってみる →</div></a>
+    <a class="tool" href="tool-reward-chart.html"><div class="ic">⭐</div><h3>がんばり表</h3><p>ごほうびまでシールを貯める表。できたことが目に見え、やる気と自信につながります。</p><div class="go">使ってみる →</div></a>
+  </div>
+
+  <h2>こんなときに</h2>
+  <div class="use">
+    <div class="u"><b>切り替えがむずかしい</b><p>「あと少しで終わり」が言葉だと伝わりにくいとき、残り時間を色で見せると納得しやすくなります。</p><div class="to">→ 視覚タイマー</div></div>
+    <div class="u"><b>予定が見えず不安</b><p>次に何があるか分からないと落ち着かないとき、絵で順番を見せると安心して動けます。</p><div class="to">→ 絵スケジュール</div></div>
+    <div class="u"><b>できたを認めたい</b><p>頑張りを目に見える形にして、達成感と自信につなげたいときに。</p><div class="to">→ がんばり表</div></div>
+  </div>
+
+  <h2>大切にしていること</h2>
+  <div class="why">
+    <div class="w"><b>見てわかる</b><p>文字や時計の読み取りが苦手でも、色や絵で直感的に伝わる設計にしています。</p></div>
+    <div class="w"><b>安心して使える</b><p>入力や予定はお使いの端末の中だけで処理し、外部に送信しません。</p></div>
+    <div class="w"><b>手軽・無料</b><p>登録もインストールも不要。思い立ったときに、今すぐ、何度でも無料で使えます。</p></div>
+  </div>
+  <div class="care">※ みとおしのツールは、日常の見通しづくりを助ける<b>補助ツール</b>です。医療・診断・治療を目的とするものではありません。お子さんに合う使い方は、必要に応じて専門家（医師・支援者）にもご相談ください。</div>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details open><summary>みとおしはどんなサイトですか？</summary><p>発達が気になるお子さんと、その家族・先生のための無料ツール集です。のこり時間や1日の予定を「見てわかる」形にして、見通しをつくり、切り替えや自信づくりを助けます。</p></details>
+    <details><summary>無料ですか？広告はありますか？</summary><p>すべて無料・登録不要です。運営のため広告を掲載する場合がありますが、使い勝手を損なわないよう配慮します。</p></details>
+    <details><summary>発達障害の診断や治療に使えますか？</summary><p>いいえ。日常の見通しづくりを助ける補助ツールで、医療・診断・治療の代わりではありません。お子さんに合う方法は専門家にもご相談ください。</p></details>
+    <details><summary>スマホ・タブレットで使えますか？</summary><p>使えます。ホーム画面に追加すればアプリのように起動でき、一度開けばオフラインでも動作します。</p></details>
+    <details><summary>データは安全ですか？</summary><p>入力内容は端末内だけで処理し、サーバーに送信しません。予定などは同じ端末に保存され、次回も続きから使えます。</p></details>
+  </div>
+  <footer><div><a href="index.html">ツール一覧</a>・<a href="about.html">このサイトについて</a>・<a href="privacy.html">プライバシー</a>・<a href="terms.html">利用規約</a></div><div>みとおし ・ すべての操作は端末内で完結します</div></footer>
+</div>
+</body>
+</html>

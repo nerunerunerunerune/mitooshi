@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>視覚タイマー ― のこり時間が“見てわかる”タイマー｜みとおし</title>
+<meta name="description" content="のこり時間が色の面積で“見てわかる”無料の視覚タイマー。時間の見通しが持ちにくいお子さんの「あと どれくらい？」を減らします。分・秒の設定、終わりの音、全画面表示、色えらび。インストール不要・登録不要・端末内で完結。">
+<link rel="canonical" href="https://mitooshi.kawatare.studio/tool-visual-timer.html">
+<meta name="theme-color" content="#2f9e8f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="みとおし">
+<meta property="og:title" content="視覚タイマー｜のこり時間が“見てわかる”タイマー">
+<meta property="og:description" content="のこり時間が色の面積で“見てわかる”無料の視覚タイマー。時間の見通しが持ちにくいお子さんの「あと どれくらい？」を減らします。分・秒の設定、終わりの音、全画面表示、色えらび。インストール不要・登録不要・端末内で完結。">
+<meta property="og:url" content="https://mitooshi.kawatare.studio/tool-visual-timer.html">
+<meta property="og:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="視覚タイマー｜のこり時間が“見てわかる”タイマー">
+<meta name="twitter:description" content="のこり時間が色の面積で“見てわかる”無料の視覚タイマー。時間の見通しが持ちにくいお子さんの「あと どれくらい？」を減らします。分・秒の設定、終わりの音、全画面表示、色えらび。インストール不要・登録不要・端末内で完結。">
+<meta name="twitter:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"視覚タイマー｜みとおし","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"のこり時間が色の面積で“見てわかる”無料の視覚タイマー。時間の見通しが持ちにくいお子さんの「あと どれくらい？」を減らします。分・秒の設定、終わりの音、全画面表示、色えらび。インストール不要・登録不要・端末内で完結。"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"視覚タイマーの使い方","step":[{"@type":"HowToStep","name":"時間をえらぶ","text":"1〜60分のボタン、または「カスタム」で分・秒を入れます。"},{"@type":"HowToStep","name":"スタート","text":"色の面積が減っていき、のこり時間が見てわかります。"},{"@type":"HowToStep","name":"おわり","text":"終わると音とメッセージでお知らせ。全画面表示も使えます。"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"「視覚タイマー」とはなんですか？","acceptedAnswer":{"@type":"Answer","text":"のこり時間を数字だけでなく“色の面積”で示すタイマーです。時計の読み取りが難しいお子さんや、時間の見通しが持ちにくい方でも、「あとこれくらい」が直感的にわかり、切り替えの不安を減らせます。"}},{"@type":"Question","name":"音を消せますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「終わりの音」のチェックを外すと無音になります。音が苦手なお子さんにも配慮できます。終了時は画面のメッセージと（対応端末では）バイブでもお知らせします。"}},{"@type":"Question","name":"アプリのインストールは必要ですか？","acceptedAnswer":{"@type":"Answer","text":"不要です。ブラウザですぐに使えます。ホーム画面に追加すればアプリのように起動でき、一度開けばオフラインでも動作します。"}},{"@type":"Question","name":"データは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべてお使いの端末内で動作し、入力内容や利用状況のファイルが送信されることはありません。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"みとおし","item":"https://mitooshi.kawatare.studio/"},{"@type":"ListItem","position":2,"name":"視覚タイマー","item":"https://mitooshi.kawatare.studio/tool-visual-timer.html"}]}</script>
+<style>
+  :root{--bg:#f6f7f6;--card:#ffffff;--ink:#242a28;--ink-2:#5d6763;--muted:#9aa4a0;--line:#e6ebe8;
+    --brand:#2f9e8f;--brand-d:#25806f;--accent:#f2795f;--good:#2fa36b;--good-bg:#e6f5ec;
+    --shadow:0 1px 2px rgba(20,30,25,.04),0 8px 22px rgba(20,30,25,.06);}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f1413;--card:#18201e;--ink:#eef3f1;--ink-2:#a9b4b0;--muted:#7c8783;
+    --line:#28302e;--brand:#4cc3b2;--brand-d:#7ad6c8;--accent:#ff9b83;--good:#4cc38a;--good-bg:#153224;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.42);}}
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.8;
+    font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;}
+  .sitebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;}
+  .sb-brand{display:flex;align-items:center;gap:9px;font-weight:800;text-decoration:none;color:var(--ink);font-size:16px;}
+  .sb-logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:16px;}
+  .sb-links{display:flex;gap:12px;font-size:13.5px;font-weight:700;}
+  .sb-links a{text-decoration:none;color:var(--ink-2);} .sb-links a:hover{color:var(--brand);}
+  .wrap{max-width:840px;margin:0 auto;padding:18px 16px 64px;}
+  header.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 12px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;box-shadow:var(--shadow);}
+  .brand h1{font-size:20px;margin:0;line-height:1.3;} .brand .tag{font-size:12.5px;color:var(--ink-2);}
+  .free{font-size:12px;color:var(--good);background:var(--good-bg);padding:5px 11px;border-radius:20px;font-weight:800;white-space:nowrap;}
+  .answer{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:14px;padding:13px 17px;margin:6px 0 16px;font-size:14.5px;box-shadow:var(--shadow);}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-bottom:16px;}
+  .seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;flex-wrap:wrap;margin:8px 0;}
+  .seg button{flex:1;border:none;background:transparent;color:var(--ink-2);font-weight:800;font-size:14px;padding:10px 8px;border-radius:9px;cursor:pointer;font-family:inherit;min-width:56px;}
+  .seg button.on{background:var(--card);color:var(--brand);box-shadow:var(--shadow);}
+  .btn{border:none;border-radius:13px;padding:13px 20px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;}
+  .btn.primary{background:var(--brand);color:#fff;} .btn.primary:hover{background:var(--brand-d);}
+  .btn.ghost{background:var(--bg);color:var(--ink);border:1px solid var(--line);}
+  .btn.big{font-size:17px;padding:15px 26px;}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+  .olabel{display:block;font-size:12.5px;font-weight:800;color:var(--ink-2);margin:2px 0 8px;}
+  .opts{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:12px 0;font-size:13.5px;color:var(--ink-2);}
+  .opts label{display:flex;align-items:center;gap:6px;cursor:pointer;} .opts input{accent-color:var(--brand);width:17px;height:17px;}
+  .status{font-size:13px;color:var(--good);min-height:16px;margin:6px 2px;font-weight:700;}
+  .ad{border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center;color:var(--muted);font-size:12px;background:var(--card);margin:16px 0;}
+  .seo h2{font-size:18px;margin:26px 0 10px;}
+  .howto{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;} @media(max-width:600px){.howto{grid-template-columns:1fr;}}
+  .howto .st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;}
+  .howto .st .n{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px;}
+  .howto .st b{display:block;margin:8px 0 2px;} .howto .st p{margin:0;font-size:13px;color:var(--ink-2);}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 15px;margin-bottom:8px;}
+  .faq summary{font-weight:800;cursor:pointer;font-size:14.5px;} .faq p{font-size:13.5px;color:var(--ink-2);margin:8px 0 0;}
+  .rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;} @media(max-width:600px){.rel-grid{grid-template-columns:1fr;}}
+  .rel{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-weight:800;} .rel:hover{border-color:var(--brand);}
+  .rel span{display:block;font-size:12px;color:var(--ink-2);font-weight:500;margin-top:2px;}
+  .care{background:var(--good-bg);border:1px solid var(--line);border-radius:12px;padding:12px 15px;font-size:12.5px;color:var(--ink-2);margin:14px 0;}
+  .foot{font-size:12px;color:var(--muted);text-align:center;margin-top:24px;line-height:1.95;}
+  .foot a{color:var(--ink-2);}
+
+
+  .tlabel{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:16px;padding:11px 14px;text-align:center;font-weight:700;}
+  .clockwrap{position:relative;width:100%;max-width:340px;margin:16px auto 6px;aspect-ratio:1/1;}
+  #clock{width:100%;height:100%;display:block;}
+  #clock .track{fill:var(--bg);stroke:var(--line);stroke-width:3;}
+  #clock .ring{fill:none;stroke:var(--line);stroke-width:3;}
+  #clock .tick{stroke:var(--muted);stroke-width:1.4;opacity:.55;}
+  #clock .wedge,#clock .wfull{fill:var(--tc);transition:none;}
+  .digits{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:52px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:1px;pointer-events:none;}
+  .donemsg{text-align:center;font-size:26px;font-weight:800;color:var(--brand);margin:6px 0;}
+  .tp-panel.fs{position:fixed;inset:0;z-index:60;margin:0;border-radius:0;display:flex;flex-direction:column;justify-content:center;background:var(--bg);}
+  .tp-panel.fs .clockwrap{max-width:min(80vh,92vw);}
+  .tp-panel.fs .seo,.tp-panel.fs .ad{display:none;}
+  .swatch{width:30px;height:30px;border-radius:50%;border:3px solid var(--card);box-shadow:0 0 0 1px var(--line);cursor:pointer;}
+  .swatch.on{box-shadow:0 0 0 3px var(--brand);}
+  .swrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+
+</style>
+</head>
+<body>
+<nav class="sitebar">
+  <a class="sb-brand" href="index.html"><span class="sb-logo">🌱</span>みとおし</a>
+  <div class="sb-links"><a href="index.html">ツール一覧</a><a href="about.html">このサイトについて</a></div>
+</nav>
+<div class="wrap">
+  <header class="hd">
+    <div class="brand"><div class="logo">⏳</div><div><h1>視覚タイマー</h1><div class="tag">のこり時間が“見てわかる”タイマー</div></div></div>
+    <div class="free">🌱 登録不要・無料</div>
+  </header>
+
+  <div class="answer">時間をえらんで<b>スタート</b>すると、色の面積がだんだん減っていき、<b>のこり時間が一目でわかる</b>タイマーです。終わりには音とメッセージでお知らせします。すべて端末内で動き、登録も保存も不要です。</div>
+
+  <div class="panel tp-panel" id="tp">
+  <input class="tlabel" id="label" maxlength="24" placeholder="なにをする時間？（任意）例：おかたづけ">
+  <div class="clockwrap" id="clockwrap">
+    <svg id="clock" viewBox="0 0 200 200" role="img" aria-label="のこり時間">
+      <circle class="track" cx="100" cy="100" r="92"></circle>
+      <g id="ticks"></g>
+      <circle class="wfull" id="wfull" cx="100" cy="100" r="92" style="display:none"></circle>
+      <path class="wedge" id="wedge" d=""></path>
+      <circle class="ring" cx="100" cy="100" r="92"></circle>
+    </svg>
+    <div class="digits" id="digits">05:00</div>
+  </div>
+  <div class="donemsg" id="doneMsg" hidden>おわり！ よくがんばったね🌸</div>
+  <label class="olabel">じかんをえらぶ（分）</label>
+  <div class="seg" id="presets">
+    <button data-m="1">1</button><button data-m="3">3</button><button data-m="5" class="on">5</button><button data-m="10">10</button><button data-m="15">15</button><button data-m="20">20</button><button data-m="30">30</button><button data-m="45">45</button><button data-m="60">60</button>
+  </div>
+  <div class="swrow" style="margin:6px 0 2px"><span class="olabel" style="margin:0">カスタム</span><input id="cmin" type="number" min="0" max="180" placeholder="分" style="width:70px;padding:9px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px"><input id="csec" type="number" min="0" max="59" placeholder="秒" style="width:70px;padding:9px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px"><button class="btn ghost" id="setCustom">セット</button></div>
+  <div class="btnrow">
+    <button class="btn primary big" id="startBtn">スタート</button>
+    <button class="btn ghost big" id="resetBtn">リセット</button>
+    <button class="btn ghost" id="fsBtn">全画面</button>
+  </div>
+  <div class="opts">
+    <label><input type="checkbox" id="soundOn" checked> 終わりの音</label>
+    <span class="olabel" style="margin:0">色</span>
+    <div class="swrow" id="colors"></div>
+  </div>
+  <div class="status" id="status"></div>
+</div>
+
+  <div class="ad">広告スペース（審査通過後に AdSense タグを挿入）</div>
+
+  <section class="seo">
+    <h2>使い方（3ステップ）</h2>
+    <div class="howto"><div class="st"><div class="n">1</div><b>時間をえらぶ</b><p>1〜60分のボタン、または「カスタム」で分・秒を入れます。</p></div><div class="st"><div class="n">2</div><b>スタート</b><p>色の面積が減っていき、のこり時間が見てわかります。</p></div><div class="st"><div class="n">3</div><b>おわり</b><p>終わると音とメッセージでお知らせ。全画面表示も使えます。</p></div></div>
+    <h2>よくある質問</h2>
+    <div class="faq"><details open><summary>「視覚タイマー」とはなんですか？</summary><p>のこり時間を数字だけでなく“色の面積”で示すタイマーです。時計の読み取りが難しいお子さんや、時間の見通しが持ちにくい方でも、「あとこれくらい」が直感的にわかり、切り替えの不安を減らせます。</p></details><details><summary>音を消せますか？</summary><p>はい。「終わりの音」のチェックを外すと無音になります。音が苦手なお子さんにも配慮できます。終了時は画面のメッセージと（対応端末では）バイブでもお知らせします。</p></details><details><summary>アプリのインストールは必要ですか？</summary><p>不要です。ブラウザですぐに使えます。ホーム画面に追加すればアプリのように起動でき、一度開けばオフラインでも動作します。</p></details><details><summary>データは送信されますか？</summary><p>いいえ。すべてお使いの端末内で動作し、入力内容や利用状況のファイルが送信されることはありません。</p></details></div>
+    <div class="care">※ このツールは日常の見通しづくりを助ける補助ツールです。医療・診断・治療を目的とするものではありません。お子さんに合う使い方は、必要に応じて専門家（医師・支援者）にもご相談ください。</div>
+    <h2>ほかのツール</h2>
+    <div class="rel-grid"><a class="rel" href="tool-picture-schedule.html">📋 絵スケジュール <span>1日の見通しを作る</span></a><a class="rel" href="tool-task-steps.html">🪜 やることステップ <span>手順を分けて“つぎ”を示す</span></a><a class="rel" href="tool-feelings.html">😊 きもちメーター <span>気持ちを見える化</span></a><a class="rel" href="tool-reward-chart.html">⭐ がんばり表 <span>ごほうびまで貯める</span></a><a class="rel" href="index.html">🌱 ツール一覧 <span>みとおしの無料ツール</span></a></div>
+  </section>
+
+  <div class="foot"><a href="index.html">ツール一覧</a> ・ <a href="about.html">このサイトについて</a> ・ <a href="privacy.html">プライバシー</a> ・ <a href="terms.html">利用規約</a><br>みとおし ・ 最終更新：2026-07-20 ・ すべての操作は端末内で完結します</div>
+</div>
+<script>(function(){
+  var COLORS=['#f2795f','#35a99b','#5b8def','#f2a541','#a982e0','#e05f8a'];
+  var svg=document.getElementById('clock'), wedge=document.getElementById('wedge'), wfull=document.getElementById('wfull');
+  var digits=document.getElementById('digits'), doneMsg=document.getElementById('doneMsg'), status=document.getElementById('status');
+  var tp=document.getElementById('tp'), label=document.getElementById('label');
+  var totalMs=5*60000, remainMs=totalMs, endAt=0, running=false, raf=0;
+  function say(m){status.textContent=m||'';}
+  // ticks (12 marks)
+  (function(){var g=document.getElementById('ticks');for(var i=0;i<12;i++){var a=(i*30-90)*Math.PI/180;var r1=92,r2=84;var x1=100+r1*Math.cos(a),y1=100+r1*Math.sin(a),x2=100+r2*Math.cos(a),y2=100+r2*Math.sin(a);var l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',x1.toFixed(1));l.setAttribute('y1',y1.toFixed(1));l.setAttribute('x2',x2.toFixed(1));l.setAttribute('y2',y2.toFixed(1));l.setAttribute('class','tick');g.appendChild(l);}})();
+  // color swatches
+  (function(){var box=document.getElementById('colors');COLORS.forEach(function(col,i){var b=document.createElement('button');b.type='button';b.className='swatch'+(i===0?' on':'');b.style.background=col;b.setAttribute('aria-label','色'+(i+1));b.addEventListener('click',function(){svg.style.setProperty('--tc',col);box.querySelectorAll('.swatch').forEach(function(x){x.classList.remove('on');});b.classList.add('on');});box.appendChild(b);});svg.style.setProperty('--tc',COLORS[0]);})();
+  function setWedge(rf){
+    if(rf>=0.9999){wfull.style.display='';wedge.setAttribute('d','');}
+    else{wfull.style.display='none';
+      if(rf<=0){wedge.setAttribute('d','');}
+      else{var cx=100,cy=100,r=92,a0=-90,a1=-90+360*rf;
+        var x0=cx+r*Math.cos(a0*Math.PI/180),y0=cy+r*Math.sin(a0*Math.PI/180);
+        var x1=cx+r*Math.cos(a1*Math.PI/180),y1=cy+r*Math.sin(a1*Math.PI/180);
+        var large=rf>0.5?1:0;
+        wedge.setAttribute('d','M'+cx+','+cy+' L'+x0.toFixed(2)+','+y0.toFixed(2)+' A'+r+','+r+' 0 '+large+' 1 '+x1.toFixed(2)+','+y1.toFixed(2)+' Z');}}
+  }
+  function fmt(ms){if(ms<0)ms=0;var s=Math.ceil(ms/1000);var m=Math.floor(s/60);s=s%60;return (m<10?'0':'')+m+':'+(s<10?'0':'')+s;}
+  function draw(){digits.textContent=fmt(remainMs);setWedge(totalMs>0?remainMs/totalMs:0);}
+  function chime(){if(!document.getElementById('soundOn').checked)return;try{var AC=window.AudioContext||window.webkitAudioContext;var ac=new AC();var t=ac.currentTime;[880,660,880].forEach(function(f,i){var o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;o.connect(g);g.connect(ac.destination);var d=i*0.22;g.gain.setValueAtTime(0.0001,t+d);g.gain.exponentialRampToValueAtTime(0.22,t+d+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t+d+0.5);o.start(t+d);o.stop(t+d+0.55);});}catch(e){}}
+  function tick(){if(!running)return;remainMs=endAt-performance.now();if(remainMs<=0){remainMs=0;running=false;draw();finish();return;}draw();raf=requestAnimationFrame(tick);}
+  function finish(){document.getElementById('startBtn').textContent='スタート';doneMsg.hidden=false;chime();try{if(navigator.vibrate)navigator.vibrate([200,120,200]);}catch(e){}say('おわりました。');}
+  function start(){if(running)return;if(remainMs<=0)remainMs=totalMs;doneMsg.hidden=true;endAt=performance.now()+remainMs;running=true;document.getElementById('startBtn').textContent='ストップ';say('');raf=requestAnimationFrame(tick);}
+  function pause(){running=false;cancelAnimationFrame(raf);remainMs=Math.max(0,endAt-performance.now());draw();document.getElementById('startBtn').textContent='スタート';}
+  function reset(){running=false;cancelAnimationFrame(raf);remainMs=totalMs;doneMsg.hidden=true;draw();document.getElementById('startBtn').textContent='スタート';say('');}
+  function setTotal(ms){totalMs=Math.max(1000,ms);reset();}
+  document.getElementById('startBtn').addEventListener('click',function(){if(running)pause();else start();});
+  document.getElementById('resetBtn').addEventListener('click',reset);
+  document.getElementById('presets').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');setTotal(parseInt(b.dataset.m,10)*60000);});
+  document.getElementById('setCustom').addEventListener('click',function(){var m=parseInt(document.getElementById('cmin').value,10)||0;var s=parseInt(document.getElementById('csec').value,10)||0;var ms=(m*60+s)*1000;if(ms<1000){say('1秒以上を入れてください。');return;}document.getElementById('presets').querySelectorAll('button').forEach(function(x){x.classList.remove('on');});setTotal(ms);say('セットしました。');});
+  document.getElementById('fsBtn').addEventListener('click',function(){if(!document.fullscreenElement){tp.classList.add('fs');(tp.requestFullscreen||tp.webkitRequestFullscreen||function(){}).call(tp);}else{document.exitFullscreen&&document.exitFullscreen();}});
+  document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement)tp.classList.remove('fs');});
+  draw();
+  window.__tool={setMinutes:function(m){setTotal(m*60000);},setMs:function(ms){setTotal(ms);},start:start,pause:pause,reset:reset,
+    remain:function(){return remainMs;},total:function(){return totalMs;},running:function(){return running;},
+    wedgeD:function(){return wedge.getAttribute('d');},full:function(){return wfull.style.display!=='none';},
+    forceEnd:function(){remainMs=0;running=false;draw();finish();},digits:function(){return digits.textContent;}};
+})();</script>
+</body>
+</html>

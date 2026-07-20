@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>きもちメーター ― いまの気持ちを“見える化”｜みとおし</title>
+<meta name="description" content="いまの気持ちを顔マークで選び、強さ（1〜5）も表せる無料ツール。言葉にしにくい感情の“見える化”を助け、まわりに伝えるきっかけに。印刷用カード表示。登録不要・送信なし・端末内で完結。">
+<link rel="canonical" href="https://mitooshi.kawatare.studio/tool-feelings.html">
+<meta name="theme-color" content="#e06a9c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="みとおし">
+<meta property="og:title" content="きもちメーター｜いまの気持ちを“見える化”">
+<meta property="og:description" content="いまの気持ちを顔マークで選び、強さ（1〜5）も表せる無料ツール。言葉にしにくい感情の“見える化”を助け、まわりに伝えるきっかけに。印刷用カード表示。登録不要・送信なし・端末内で完結。">
+<meta property="og:url" content="https://mitooshi.kawatare.studio/tool-feelings.html">
+<meta property="og:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="きもちメーター｜いまの気持ちを“見える化”">
+<meta name="twitter:description" content="いまの気持ちを顔マークで選び、強さ（1〜5）も表せる無料ツール。言葉にしにくい感情の“見える化”を助け、まわりに伝えるきっかけに。印刷用カード表示。登録不要・送信なし・端末内で完結。">
+<meta name="twitter:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"きもちメーター｜みとおし","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"いまの気持ちを顔マークで選び、強さ（1〜5）も表せる無料ツール。言葉にしにくい感情の“見える化”を助け、まわりに伝えるきっかけに。印刷用カード表示。登録不要・送信なし・端末内で完結。"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"きもちメーターの使い方","step":[{"@type":"HowToStep","name":"気持ちを選ぶ","text":"うれしい・かなしい など、近い顔をタップします。"},{"@type":"HowToStep","name":"強さを選ぶ","text":"どれくらいか、1〜5で選べます（任意）。"},{"@type":"HowToStep","name":"伝える・印刷","text":"大きく表示。印刷して見せることもできます。"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"きもちメーター（感情の見える化）は何に役立ちますか？","acceptedAnswer":{"@type":"Answer","text":"気持ちを言葉にするのが苦手なお子さんが、顔マークで自分の状態に気づいたり、まわりに伝えたりするのを助けます。感情に名前をつけることは、落ち着きを取り戻す助けにもなります。"}},{"@type":"Question","name":"強さ（つよさ）は何のためにありますか？","acceptedAnswer":{"@type":"Answer","text":"同じ「おこ」でも程度はさまざまです。1〜5で表すと、どのくらい強い気持ちかが伝わりやすくなります。"}},{"@type":"Question","name":"データは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべて端末内で表示するだけで、送信も保存もしません。"}},{"@type":"Question","name":"印刷して使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。選んだ気持ちのカードを印刷して、伝える・記録するのに使えます。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"みとおし","item":"https://mitooshi.kawatare.studio/"},{"@type":"ListItem","position":2,"name":"きもちメーター","item":"https://mitooshi.kawatare.studio/tool-feelings.html"}]}</script>
+<style>
+  :root{--bg:#f6f7f6;--card:#ffffff;--ink:#242a28;--ink-2:#5d6763;--muted:#9aa4a0;--line:#e6ebe8;
+    --brand:#e06a9c;--brand-d:#c44e82;--accent:#35a99b;--good:#2fa36b;--good-bg:#e6f5ec;
+    --shadow:0 1px 2px rgba(20,30,25,.04),0 8px 22px rgba(20,30,25,.06);}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f1413;--card:#18201e;--ink:#eef3f1;--ink-2:#a9b4b0;--muted:#7c8783;
+    --line:#28302e;--brand:#f090bb;--brand-d:#f7b8d3;--accent:#4cc3b2;--good:#4cc38a;--good-bg:#153224;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.42);}}
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.8;
+    font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;}
+  .sitebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;}
+  .sb-brand{display:flex;align-items:center;gap:9px;font-weight:800;text-decoration:none;color:var(--ink);font-size:16px;}
+  .sb-logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:16px;}
+  .sb-links{display:flex;gap:12px;font-size:13.5px;font-weight:700;}
+  .sb-links a{text-decoration:none;color:var(--ink-2);} .sb-links a:hover{color:var(--brand);}
+  .wrap{max-width:840px;margin:0 auto;padding:18px 16px 64px;}
+  header.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 12px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;box-shadow:var(--shadow);}
+  .brand h1{font-size:20px;margin:0;line-height:1.3;} .brand .tag{font-size:12.5px;color:var(--ink-2);}
+  .free{font-size:12px;color:var(--good);background:var(--good-bg);padding:5px 11px;border-radius:20px;font-weight:800;white-space:nowrap;}
+  .answer{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:14px;padding:13px 17px;margin:6px 0 16px;font-size:14.5px;box-shadow:var(--shadow);}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-bottom:16px;}
+  .seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;flex-wrap:wrap;margin:8px 0;}
+  .seg button{flex:1;border:none;background:transparent;color:var(--ink-2);font-weight:800;font-size:14px;padding:10px 8px;border-radius:9px;cursor:pointer;font-family:inherit;min-width:56px;}
+  .seg button.on{background:var(--card);color:var(--brand);box-shadow:var(--shadow);}
+  .btn{border:none;border-radius:13px;padding:13px 20px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;}
+  .btn.primary{background:var(--brand);color:#fff;} .btn.primary:hover{background:var(--brand-d);}
+  .btn.ghost{background:var(--bg);color:var(--ink);border:1px solid var(--line);}
+  .btn.big{font-size:17px;padding:15px 26px;}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+  .olabel{display:block;font-size:12.5px;font-weight:800;color:var(--ink-2);margin:2px 0 8px;}
+  .opts{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:12px 0;font-size:13.5px;color:var(--ink-2);}
+  .opts label{display:flex;align-items:center;gap:6px;cursor:pointer;} .opts input{accent-color:var(--brand);width:17px;height:17px;}
+  .status{font-size:13px;color:var(--good);min-height:16px;margin:6px 2px;font-weight:700;}
+  .ad{border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center;color:var(--muted);font-size:12px;background:var(--card);margin:16px 0;}
+  .seo h2{font-size:18px;margin:26px 0 10px;}
+  .howto{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;} @media(max-width:600px){.howto{grid-template-columns:1fr;}}
+  .howto .st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;}
+  .howto .st .n{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px;}
+  .howto .st b{display:block;margin:8px 0 2px;} .howto .st p{margin:0;font-size:13px;color:var(--ink-2);}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 15px;margin-bottom:8px;}
+  .faq summary{font-weight:800;cursor:pointer;font-size:14.5px;} .faq p{font-size:13.5px;color:var(--ink-2);margin:8px 0 0;}
+  .rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;} @media(max-width:600px){.rel-grid{grid-template-columns:1fr;}}
+  .rel{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-weight:800;} .rel:hover{border-color:var(--brand);}
+  .rel span{display:block;font-size:12px;color:var(--ink-2);font-weight:500;margin-top:2px;}
+  .care{background:var(--good-bg);border:1px solid var(--line);border-radius:12px;padding:12px 15px;font-size:12.5px;color:var(--ink-2);margin:14px 0;}
+  .foot{font-size:12px;color:var(--muted);text-align:center;margin-top:24px;line-height:1.95;}
+  .foot a{color:var(--ink-2);}
+
+
+  .fbig{text-align:center;padding:8px 0 4px;}
+  .fbig .face{font-size:86px;line-height:1;}
+  .fbig .word{font-size:25px;font-weight:800;margin-top:6px;color:var(--ink);}
+  .fbig .sub{font-size:15px;color:var(--ink-2);min-height:20px;}
+  .fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0;} @media(max-width:520px){.fgrid{grid-template-columns:repeat(3,1fr);}}
+  .fbtn{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 4px;cursor:pointer;text-align:center;font-family:inherit;}
+  .fbtn:hover{border-color:var(--brand);} .fbtn.on{border-color:var(--brand);background:var(--good-bg);}
+  .fbtn .e{font-size:34px;line-height:1;} .fbtn .l{font-size:12.5px;font-weight:700;color:var(--ink-2);margin-top:4px;}
+  .levels{display:flex;gap:8px;justify-content:center;align-items:flex-end;margin:8px 0;}
+  .lvl{background:var(--bg);border:2px solid var(--line);border-radius:10px;cursor:pointer;width:46px;display:grid;place-items:center;font-weight:800;color:var(--ink-2);}
+  .lvl.on{border-color:var(--brand);background:var(--good-bg);color:var(--brand);}
+  @media print{.sitebar,.answer,.ad,.seo,.foot,.noprint,header .free{display:none !important;}.panel{box-shadow:none;border:none;}body{background:#fff;}}
+
+</style>
+</head>
+<body>
+<nav class="sitebar">
+  <a class="sb-brand" href="index.html"><span class="sb-logo">🌱</span>みとおし</a>
+  <div class="sb-links"><a href="index.html">ツール一覧</a><a href="about.html">このサイトについて</a></div>
+</nav>
+<div class="wrap">
+  <header class="hd">
+    <div class="brand"><div class="logo">😊</div><div><h1>きもちメーター</h1><div class="tag">いまの気持ちを“見える化”</div></div></div>
+    <div class="free">🌱 登録不要・無料</div>
+  </header>
+
+  <div class="answer">12種類の顔から<b>いまの気持ちを選び</b>、つよさ（1〜5）も選べます。大きく表示されるので、言葉にしにくい気持ちを自分で確かめたり、まわりに伝えたりするのに役立ちます。</div>
+
+  <div class="panel">
+  <div class="fbig" id="fbig"><div class="face" id="face">🙂</div><div class="word" id="word">きもちを えらんでね</div><div class="sub" id="sub"></div></div>
+  <label class="olabel noprint">いま どんな きもち？</label>
+  <div class="fgrid noprint" id="fgrid"></div>
+  <label class="olabel noprint">どれくらい？（つよさ）</label>
+  <div class="levels noprint" id="levels"></div>
+  <input class="noprint" id="note" maxlength="30" placeholder="なにが あった？（任意）" style="width:100%;margin-top:8px;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px">
+  <div class="btnrow noprint"><button class="btn primary" id="printBtn">このカードを印刷</button><button class="btn ghost" id="resetBtn">リセット</button></div>
+</div>
+
+  <div class="ad">広告スペース（審査通過後に AdSense タグを挿入）</div>
+
+  <section class="seo">
+    <h2>使い方（3ステップ）</h2>
+    <div class="howto"><div class="st"><div class="n">1</div><b>気持ちを選ぶ</b><p>うれしい・かなしい など、近い顔をタップします。</p></div><div class="st"><div class="n">2</div><b>強さを選ぶ</b><p>どれくらいか、1〜5で選べます（任意）。</p></div><div class="st"><div class="n">3</div><b>伝える・印刷</b><p>大きく表示。印刷して見せることもできます。</p></div></div>
+    <h2>よくある質問</h2>
+    <div class="faq"><details open><summary>きもちメーター（感情の見える化）は何に役立ちますか？</summary><p>気持ちを言葉にするのが苦手なお子さんが、顔マークで自分の状態に気づいたり、まわりに伝えたりするのを助けます。感情に名前をつけることは、落ち着きを取り戻す助けにもなります。</p></details><details><summary>強さ（つよさ）は何のためにありますか？</summary><p>同じ「おこ」でも程度はさまざまです。1〜5で表すと、どのくらい強い気持ちかが伝わりやすくなります。</p></details><details><summary>データは送信されますか？</summary><p>いいえ。すべて端末内で表示するだけで、送信も保存もしません。</p></details><details><summary>印刷して使えますか？</summary><p>はい。選んだ気持ちのカードを印刷して、伝える・記録するのに使えます。</p></details></div>
+    <div class="care">※ このツールは日常の見通しづくりを助ける補助ツールです。医療・診断・治療を目的とするものではありません。お子さんに合う使い方は、必要に応じて専門家（医師・支援者）にもご相談ください。</div>
+    <h2>ほかのツール</h2>
+    <div class="rel-grid"><a class="rel" href="tool-visual-timer.html">⏳ 視覚タイマー <span>のこり時間が見てわかる</span></a><a class="rel" href="tool-picture-schedule.html">📋 絵スケジュール <span>1日の見通しを作る</span></a><a class="rel" href="tool-task-steps.html">🪜 やることステップ <span>手順を分けて“つぎ”を示す</span></a><a class="rel" href="tool-reward-chart.html">⭐ がんばり表 <span>ごほうびまで貯める</span></a><a class="rel" href="index.html">🌱 ツール一覧 <span>みとおしの無料ツール</span></a></div>
+  </section>
+
+  <div class="foot"><a href="index.html">ツール一覧</a> ・ <a href="about.html">このサイトについて</a> ・ <a href="privacy.html">プライバシー</a> ・ <a href="terms.html">利用規約</a><br>みとおし ・ 最終更新：2026-07-20 ・ すべての操作は端末内で完結します</div>
+</div>
+<script>(function(){
+  var FEELS=[['😊','うれしい'],['😄','たのしい'],['😌','おちつく'],['🤩','わくわく'],['😢','かなしい'],['😠','おこ'],['😰','ふあん'],['😱','こわい'],['😴','つかれた'],['😖','いや'],['🥺','さみしい'],['😲','びっくり']];
+  var sel=-1, lvl=0;
+  var fgrid=document.getElementById('fgrid'), levels=document.getElementById('levels');
+  var face=document.getElementById('face'), word=document.getElementById('word'), sub=document.getElementById('sub');
+  FEELS.forEach(function(f,i){var b=document.createElement('button');b.type='button';b.className='fbtn';b.innerHTML='<div class="e"></div><div class="l"></div>';b.querySelector('.e').textContent=f[0];b.querySelector('.l').textContent=f[1];b.addEventListener('click',function(){sel=i;fgrid.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');upd();});fgrid.appendChild(b);});
+  for(var k=1;k<=5;k++){(function(n){var b=document.createElement('button');b.type='button';b.className='lvl';b.style.height=(22+n*8)+'px';b.textContent=n;b.addEventListener('click',function(){lvl=n;levels.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});b.classList.add('on');upd();});levels.appendChild(b);})(k);}
+  function stars(n){var s='';for(var i=1;i<=5;i++){s+=(i<=n?'★':'☆');}return s;}
+  function upd(){
+    if(sel<0){face.textContent='🙂';word.textContent='きもちを えらんでね';sub.textContent='';return;}
+    face.textContent=FEELS[sel][0];word.textContent=FEELS[sel][1]+'　きもち';
+    var note=document.getElementById('note').value.trim();
+    sub.textContent=(lvl?('つよさ '+stars(lvl)):'')+((lvl&&note)?'　／　':'')+(note||'');
+  }
+  document.getElementById('note').addEventListener('input',upd);
+  document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  document.getElementById('resetBtn').addEventListener('click',function(){sel=-1;lvl=0;fgrid.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on');});levels.querySelectorAll('.lvl').forEach(function(x){x.classList.remove('on');});document.getElementById('note').value='';upd();});
+  upd();
+  window.__tool={pick:function(i){fgrid.querySelectorAll('.fbtn')[i].click();},setLevel:function(n){levels.querySelectorAll('.lvl')[n-1].click();},word:function(){return word.textContent;},sub:function(){return sub.textContent;},selected:function(){return sel;}};
+})();</script>
+</body>
+</html>

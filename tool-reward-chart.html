@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>がんばり表 ― ごほうびまでシールを貯める｜みとおし</title>
+<meta name="description" content="「がんばり表（ごほうび表・トークンボード）」を無料で作れるツール。目標に向けてスターやシールをタップで貯め、ごほうびまでの進み具合が見てわかります。印刷・PDF保存も。インストール不要・登録不要・端末内で完結。">
+<link rel="canonical" href="https://mitooshi.kawatare.studio/tool-reward-chart.html">
+<meta name="theme-color" content="#d98a2b">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="みとおし">
+<meta property="og:title" content="がんばり表｜ごほうびまでシールを貯める">
+<meta property="og:description" content="「がんばり表（ごほうび表・トークンボード）」を無料で作れるツール。目標に向けてスターやシールをタップで貯め、ごほうびまでの進み具合が見てわかります。印刷・PDF保存も。インストール不要・登録不要・端末内で完結。">
+<meta property="og:url" content="https://mitooshi.kawatare.studio/tool-reward-chart.html">
+<meta property="og:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="がんばり表｜ごほうびまでシールを貯める">
+<meta name="twitter:description" content="「がんばり表（ごほうび表・トークンボード）」を無料で作れるツール。目標に向けてスターやシールをタップで貯め、ごほうびまでの進み具合が見てわかります。印刷・PDF保存も。インストール不要・登録不要・端末内で完結。">
+<meta name="twitter:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"がんばり表｜みとおし","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"「がんばり表（ごほうび表・トークンボード）」を無料で作れるツール。目標に向けてスターやシールをタップで貯め、ごほうびまでの進み具合が見てわかります。印刷・PDF保存も。インストール不要・登録不要・端末内で完結。"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"がんばり表の使い方","step":[{"@type":"HowToStep","name":"目標を決める","text":"がんばること・ごほうび・必要な数を入れて「作る」。"},{"@type":"HowToStep","name":"貯める","text":"できたらマークをタップ。進み具合が見えます。"},{"@type":"HowToStep","name":"達成・印刷","text":"全部たまるとお祝い表示。印刷・PDF保存もできます。"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"トークンエコノミー（ごほうび表）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"よい行動ができたらしるし（トークン）を貯め、一定数たまったらごほうびと交換する方法です。目標が見えることで動機づけになり、家庭や支援の場で広く使われています。"}},{"@type":"Question","name":"何個から何個まで作れますか？","acceptedAnswer":{"@type":"Answer","text":"1〜30個まで設定できます。小さなお子さんは少なめ（5個など）から始めるのがおすすめです。"}},{"@type":"Question","name":"内容は保存されますか？","acceptedAnswer":{"@type":"Answer","text":"同じ端末の同じブラウザなら、次に開いても続きから使えます（端末内に保存し、サーバー送信はありません）。"}},{"@type":"Question","name":"印刷して使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「印刷・PDF保存」できれいに印刷・PDF化できます。壁に貼って手書きで塗ってもかまいません。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"みとおし","item":"https://mitooshi.kawatare.studio/"},{"@type":"ListItem","position":2,"name":"がんばり表","item":"https://mitooshi.kawatare.studio/tool-reward-chart.html"}]}</script>
+<style>
+  :root{--bg:#f6f7f6;--card:#ffffff;--ink:#242a28;--ink-2:#5d6763;--muted:#9aa4a0;--line:#e6ebe8;
+    --brand:#d98a2b;--brand-d:#b8701d;--accent:#35a99b;--good:#2fa36b;--good-bg:#e6f5ec;
+    --shadow:0 1px 2px rgba(20,30,25,.04),0 8px 22px rgba(20,30,25,.06);}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f1413;--card:#18201e;--ink:#eef3f1;--ink-2:#a9b4b0;--muted:#7c8783;
+    --line:#28302e;--brand:#f0b45c;--brand-d:#ffce85;--accent:#4cc3b2;--good:#4cc38a;--good-bg:#153224;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.42);}}
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.8;
+    font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;}
+  .sitebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;}
+  .sb-brand{display:flex;align-items:center;gap:9px;font-weight:800;text-decoration:none;color:var(--ink);font-size:16px;}
+  .sb-logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:16px;}
+  .sb-links{display:flex;gap:12px;font-size:13.5px;font-weight:700;}
+  .sb-links a{text-decoration:none;color:var(--ink-2);} .sb-links a:hover{color:var(--brand);}
+  .wrap{max-width:840px;margin:0 auto;padding:18px 16px 64px;}
+  header.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 12px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;box-shadow:var(--shadow);}
+  .brand h1{font-size:20px;margin:0;line-height:1.3;} .brand .tag{font-size:12.5px;color:var(--ink-2);}
+  .free{font-size:12px;color:var(--good);background:var(--good-bg);padding:5px 11px;border-radius:20px;font-weight:800;white-space:nowrap;}
+  .answer{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:14px;padding:13px 17px;margin:6px 0 16px;font-size:14.5px;box-shadow:var(--shadow);}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-bottom:16px;}
+  .seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;flex-wrap:wrap;margin:8px 0;}
+  .seg button{flex:1;border:none;background:transparent;color:var(--ink-2);font-weight:800;font-size:14px;padding:10px 8px;border-radius:9px;cursor:pointer;font-family:inherit;min-width:56px;}
+  .seg button.on{background:var(--card);color:var(--brand);box-shadow:var(--shadow);}
+  .btn{border:none;border-radius:13px;padding:13px 20px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;}
+  .btn.primary{background:var(--brand);color:#fff;} .btn.primary:hover{background:var(--brand-d);}
+  .btn.ghost{background:var(--bg);color:var(--ink);border:1px solid var(--line);}
+  .btn.big{font-size:17px;padding:15px 26px;}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+  .olabel{display:block;font-size:12.5px;font-weight:800;color:var(--ink-2);margin:2px 0 8px;}
+  .opts{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:12px 0;font-size:13.5px;color:var(--ink-2);}
+  .opts label{display:flex;align-items:center;gap:6px;cursor:pointer;} .opts input{accent-color:var(--brand);width:17px;height:17px;}
+  .status{font-size:13px;color:var(--good);min-height:16px;margin:6px 2px;font-weight:700;}
+  .ad{border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center;color:var(--muted);font-size:12px;background:var(--card);margin:16px 0;}
+  .seo h2{font-size:18px;margin:26px 0 10px;}
+  .howto{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;} @media(max-width:600px){.howto{grid-template-columns:1fr;}}
+  .howto .st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;}
+  .howto .st .n{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px;}
+  .howto .st b{display:block;margin:8px 0 2px;} .howto .st p{margin:0;font-size:13px;color:var(--ink-2);}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 15px;margin-bottom:8px;}
+  .faq summary{font-weight:800;cursor:pointer;font-size:14.5px;} .faq p{font-size:13.5px;color:var(--ink-2);margin:8px 0 0;}
+  .rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;} @media(max-width:600px){.rel-grid{grid-template-columns:1fr;}}
+  .rel{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-weight:800;} .rel:hover{border-color:var(--brand);}
+  .rel span{display:block;font-size:12px;color:var(--ink-2);font-weight:500;margin-top:2px;}
+  .care{background:var(--good-bg);border:1px solid var(--line);border-radius:12px;padding:12px 15px;font-size:12.5px;color:var(--ink-2);margin:14px 0;}
+  .foot{font-size:12px;color:var(--muted);text-align:center;margin-top:24px;line-height:1.95;}
+  .foot a{color:var(--ink-2);}
+
+
+  .rtitle{width:100%;border:none;border-bottom:2px dashed var(--line);background:transparent;color:var(--ink);font-family:inherit;font-size:21px;font-weight:800;text-align:center;padding:8px;margin-bottom:4px;}
+  .rgoal{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;font-size:14.5px;color:var(--ink-2);margin:6px 0;}
+  .rgoal input{border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px;padding:9px 12px;}
+  .emopick{display:flex;flex-wrap:wrap;gap:5px;}
+  .emobtn{width:38px;height:38px;border:1px solid var(--line);background:var(--bg);border-radius:10px;font-size:20px;cursor:pointer;line-height:1;}
+  .emobtn.on{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand);}
+  .tokens{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px auto;max-width:360px;}
+  .token{aspect-ratio:1/1;border:2px dashed var(--line);border-radius:16px;display:grid;place-items:center;font-size:30px;cursor:pointer;background:var(--bg);filter:grayscale(1) opacity(.4);user-select:none;transition:.1s;}
+  .token.on{border-style:solid;border-color:var(--brand);background:var(--good-bg);filter:none;}
+  .progress{text-align:center;font-size:19px;font-weight:800;color:var(--brand);}
+  .celebrate{text-align:center;font-size:22px;font-weight:800;color:var(--accent);margin:8px 0;}
+  .goalshow{text-align:center;font-weight:800;color:var(--ink);min-height:20px;}
+  @media print{.sitebar,.answer,.ad,.seo,.foot,.noprint,header .free{display:none !important;}.panel{box-shadow:none;border:none;}body{background:#fff;}.token{filter:none;}}
+
+</style>
+</head>
+<body>
+<nav class="sitebar">
+  <a class="sb-brand" href="index.html"><span class="sb-logo">🌱</span>みとおし</a>
+  <div class="sb-links"><a href="index.html">ツール一覧</a><a href="about.html">このサイトについて</a></div>
+</nav>
+<div class="wrap">
+  <header class="hd">
+    <div class="brand"><div class="logo">⭐</div><div><h1>がんばり表</h1><div class="tag">ごほうびまでシールを貯める</div></div></div>
+    <div class="free">🌱 登録不要・無料</div>
+  </header>
+
+  <div class="answer">がんばることとごほうび、必要な数を決めたら、できるたびに<b>マークをタップして貯めていく</b>表です。あと何個で目標かが見てわかり、やる気を後押しします。印刷して壁に貼るのもおすすめ。</div>
+
+  <div class="panel">
+  <input class="rtitle" id="rtitle" maxlength="24" value="がんばりカード">
+  <div class="rgoal noprint">
+    <label>なにをがんばる？ <input id="rwhat" maxlength="20" placeholder="例：はやね" style="width:150px"></label>
+    <label>ごほうび <input id="rprize" maxlength="20" placeholder="例：こうえん" style="width:150px"></label>
+  </div>
+  <div class="rgoal noprint">
+    <label>かず <input id="rcount" type="number" min="1" max="30" value="10" style="width:66px"></label>
+    <span class="olabel" style="margin:0">マーク</span>
+    <span class="emopick" id="markpick"></span>
+    <button class="btn ghost" id="applyBtn">作る</button>
+  </div>
+  <div class="goalshow" id="goalShow"></div>
+  <div class="tokens" id="tokens"></div>
+  <div class="progress" id="progress">0 / 10</div>
+  <div class="celebrate" id="celebrate" hidden>ぜんぶ あつまったね！ おめでとう🎉</div>
+  <div class="btnrow noprint">
+    <button class="btn primary" id="printBtn">印刷・PDF保存</button>
+    <button class="btn ghost" id="resetBtn">リセット</button>
+  </div>
+  <div class="status noprint" id="status"></div>
+</div>
+
+  <div class="ad">広告スペース（審査通過後に AdSense タグを挿入）</div>
+
+  <section class="seo">
+    <h2>使い方（3ステップ）</h2>
+    <div class="howto"><div class="st"><div class="n">1</div><b>目標を決める</b><p>がんばること・ごほうび・必要な数を入れて「作る」。</p></div><div class="st"><div class="n">2</div><b>貯める</b><p>できたらマークをタップ。進み具合が見えます。</p></div><div class="st"><div class="n">3</div><b>達成・印刷</b><p>全部たまるとお祝い表示。印刷・PDF保存もできます。</p></div></div>
+    <h2>よくある質問</h2>
+    <div class="faq"><details open><summary>トークンエコノミー（ごほうび表）とは何ですか？</summary><p>よい行動ができたらしるし（トークン）を貯め、一定数たまったらごほうびと交換する方法です。目標が見えることで動機づけになり、家庭や支援の場で広く使われています。</p></details><details><summary>何個から何個まで作れますか？</summary><p>1〜30個まで設定できます。小さなお子さんは少なめ（5個など）から始めるのがおすすめです。</p></details><details><summary>内容は保存されますか？</summary><p>同じ端末の同じブラウザなら、次に開いても続きから使えます（端末内に保存し、サーバー送信はありません）。</p></details><details><summary>印刷して使えますか？</summary><p>はい。「印刷・PDF保存」できれいに印刷・PDF化できます。壁に貼って手書きで塗ってもかまいません。</p></details></div>
+    <div class="care">※ このツールは日常の見通しづくりを助ける補助ツールです。医療・診断・治療を目的とするものではありません。お子さんに合う使い方は、必要に応じて専門家（医師・支援者）にもご相談ください。</div>
+    <h2>ほかのツール</h2>
+    <div class="rel-grid"><a class="rel" href="tool-visual-timer.html">⏳ 視覚タイマー <span>のこり時間が見てわかる</span></a><a class="rel" href="tool-picture-schedule.html">📋 絵スケジュール <span>1日の見通しを作る</span></a><a class="rel" href="tool-task-steps.html">🪜 やることステップ <span>手順を分けて“つぎ”を示す</span></a><a class="rel" href="tool-feelings.html">😊 きもちメーター <span>気持ちを見える化</span></a><a class="rel" href="index.html">🌱 ツール一覧 <span>みとおしの無料ツール</span></a></div>
+  </section>
+
+  <div class="foot"><a href="index.html">ツール一覧</a> ・ <a href="about.html">このサイトについて</a> ・ <a href="privacy.html">プライバシー</a> ・ <a href="terms.html">利用規約</a><br>みとおし ・ 最終更新：2026-07-20 ・ すべての操作は端末内で完結します</div>
+</div>
+<script>(function(){
+  var MARKS=['⭐','🌸','🐟','🚗','🐶','🍓','⚽','🌈'];
+  var mark='⭐', total=10, filled=0;
+  var tokensEl=document.getElementById('tokens'), prog=document.getElementById('progress'), cel=document.getElementById('celebrate'), status=document.getElementById('status');
+  function say(m){status.textContent=m||'';}
+  function save(){try{localStorage.setItem('mitooshi_reward',JSON.stringify({t:document.getElementById('rtitle').value,what:document.getElementById('rwhat').value,prize:document.getElementById('rprize').value,mark:mark,total:total,filled:filled}));}catch(e){}}
+  function load(){try{var d=JSON.parse(localStorage.getItem('mitooshi_reward')||'null');if(d){document.getElementById('rtitle').value=d.t||'がんばりカード';document.getElementById('rwhat').value=d.what||'';document.getElementById('rprize').value=d.prize||'';document.getElementById('rcount').value=d.total||10;mark=d.mark||'⭐';total=d.total||10;filled=d.filled||0;}}catch(e){}}
+  (function(){var box=document.getElementById('markpick');MARKS.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.className='emobtn'+(i===0?' on':'');b.textContent=m;b.addEventListener('click',function(){mark=m;box.querySelectorAll('.emobtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render();save();});box.appendChild(b);});})();
+  function goalText(){var what=document.getElementById('rwhat').value.trim(),prize=document.getElementById('rprize').value.trim(),s='';if(what)s+='「'+what+'」をがんばろう';if(prize)s+=(s?'　／　':'')+'ごほうび：'+prize;document.getElementById('goalShow').textContent=s;}
+  function render(){
+    tokensEl.innerHTML='';
+    for(var i=0;i<total;i++){(function(idx){var t=document.createElement('div');t.className='token'+(idx<filled?' on':'');t.textContent=mark;t.addEventListener('click',function(){filled=(idx<filled)?idx:idx+1;update();save();});tokensEl.appendChild(t);})(i);}
+    update();goalText();
+  }
+  function update(){var tks=tokensEl.querySelectorAll('.token');tks.forEach(function(t,i){t.classList.toggle('on',i<filled);});prog.textContent=filled+' / '+total;cel.hidden=!(total>0&&filled>=total);}
+  document.getElementById('applyBtn').addEventListener('click',function(){var n=parseInt(document.getElementById('rcount').value,10)||10;n=Math.max(1,Math.min(30,n));total=n;if(filled>total)filled=total;render();save();say('作りました。マークをタップして貯めてね。');});
+  document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  document.getElementById('resetBtn').addEventListener('click',function(){filled=0;update();save();});
+  document.getElementById('rwhat').addEventListener('input',function(){goalText();save();});
+  document.getElementById('rprize').addEventListener('input',function(){goalText();save();});
+  document.getElementById('rtitle').addEventListener('input',save);
+  load();render();
+  window.__tool={setTotal:function(n){total=n;if(filled>total)filled=total;render();},fill:function(n){filled=n;update();save();},filled:function(){return filled;},total:function(){return total;},tapToken:function(i){tokensEl.querySelectorAll('.token')[i].click();},celebrating:function(){return !document.getElementById('celebrate').hidden;}};
+})();</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "みとおし",
+  "short_name": "みとおし",
+  "description": "発達が気になる子のための無料視覚支援ツール",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f7f6",
+  "theme_color": "#2f9e8f",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>絵スケジュール ― 1日の“見通し”を絵カードで作る｜みとおし</title>
+<meta name="description" content="1日の予定を絵カード（絵文字＋文字＋時刻）で並べて“見通し”を作れる無料ツール。次に何をするかが見てわかり、活動の切り替えの不安をやわらげます。できたらチェック、印刷・PDF保存も。インストール不要・登録不要・端末内で完結。">
+<link rel="canonical" href="https://mitooshi.kawatare.studio/tool-picture-schedule.html">
+<meta name="theme-color" content="#5b8def">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="みとおし">
+<meta property="og:title" content="絵スケジュール｜1日の“見通し”を絵カードで作る">
+<meta property="og:description" content="1日の予定を絵カード（絵文字＋文字＋時刻）で並べて“見通し”を作れる無料ツール。次に何をするかが見てわかり、活動の切り替えの不安をやわらげます。できたらチェック、印刷・PDF保存も。インストール不要・登録不要・端末内で完結。">
+<meta property="og:url" content="https://mitooshi.kawatare.studio/tool-picture-schedule.html">
+<meta property="og:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="絵スケジュール｜1日の“見通し”を絵カードで作る">
+<meta name="twitter:description" content="1日の予定を絵カード（絵文字＋文字＋時刻）で並べて“見通し”を作れる無料ツール。次に何をするかが見てわかり、活動の切り替えの不安をやわらげます。できたらチェック、印刷・PDF保存も。インストール不要・登録不要・端末内で完結。">
+<meta name="twitter:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"絵スケジュール｜みとおし","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"1日の予定を絵カード（絵文字＋文字＋時刻）で並べて“見通し”を作れる無料ツール。次に何をするかが見てわかり、活動の切り替えの不安をやわらげます。できたらチェック、印刷・PDF保存も。インストール不要・登録不要・端末内で完結。"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"絵スケジュールの使い方","step":[{"@type":"HowToStep","name":"カードを選ぶ","text":"よくあるカードをタップ、または自分でマークとやることを追加します。"},{"@type":"HowToStep","name":"順番に並べる","text":"▲▼で並べ替え、時刻も入れられます。"},{"@type":"HowToStep","name":"使う・印刷","text":"できたら✓。印刷・PDF保存して貼っておけます。"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"絵スケジュール（視覚スケジュール）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"次に何をするかを絵と文字で示した予定表です。見通しが持てると安心でき、活動の切り替えがスムーズになります。自閉スペクトラムやADHDのお子さんの支援でよく使われます。"}},{"@type":"Question","name":"印刷して使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「印刷・PDF保存」から、操作ボタンを除いたきれいな予定表を印刷・PDF化できます。冷蔵庫やお部屋に貼ってお使いください。"}},{"@type":"Question","name":"作った予定は残りますか？","acceptedAnswer":{"@type":"Answer","text":"同じ端末の同じブラウザなら、次に開いたときも内容が残ります（端末内に保存し、サーバーには送信しません）。"}},{"@type":"Question","name":"データは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。すべて端末内で処理し、内容が外部に送信されることはありません。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"みとおし","item":"https://mitooshi.kawatare.studio/"},{"@type":"ListItem","position":2,"name":"絵スケジュール","item":"https://mitooshi.kawatare.studio/tool-picture-schedule.html"}]}</script>
+<style>
+  :root{--bg:#f6f7f6;--card:#ffffff;--ink:#242a28;--ink-2:#5d6763;--muted:#9aa4a0;--line:#e6ebe8;
+    --brand:#5b8def;--brand-d:#3f6fd0;--accent:#f2a541;--good:#2fa36b;--good-bg:#e6f5ec;
+    --shadow:0 1px 2px rgba(20,30,25,.04),0 8px 22px rgba(20,30,25,.06);}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f1413;--card:#18201e;--ink:#eef3f1;--ink-2:#a9b4b0;--muted:#7c8783;
+    --line:#28302e;--brand:#7ea8f5;--brand-d:#a9c6fa;--accent:#ffc46b;--good:#4cc38a;--good-bg:#153224;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.42);}}
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.8;
+    font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;}
+  .sitebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;}
+  .sb-brand{display:flex;align-items:center;gap:9px;font-weight:800;text-decoration:none;color:var(--ink);font-size:16px;}
+  .sb-logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:16px;}
+  .sb-links{display:flex;gap:12px;font-size:13.5px;font-weight:700;}
+  .sb-links a{text-decoration:none;color:var(--ink-2);} .sb-links a:hover{color:var(--brand);}
+  .wrap{max-width:840px;margin:0 auto;padding:18px 16px 64px;}
+  header.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 12px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;box-shadow:var(--shadow);}
+  .brand h1{font-size:20px;margin:0;line-height:1.3;} .brand .tag{font-size:12.5px;color:var(--ink-2);}
+  .free{font-size:12px;color:var(--good);background:var(--good-bg);padding:5px 11px;border-radius:20px;font-weight:800;white-space:nowrap;}
+  .answer{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--brand);border-radius:14px;padding:13px 17px;margin:6px 0 16px;font-size:14.5px;box-shadow:var(--shadow);}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-bottom:16px;}
+  .seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;flex-wrap:wrap;margin:8px 0;}
+  .seg button{flex:1;border:none;background:transparent;color:var(--ink-2);font-weight:800;font-size:14px;padding:10px 8px;border-radius:9px;cursor:pointer;font-family:inherit;min-width:56px;}
+  .seg button.on{background:var(--card);color:var(--brand);box-shadow:var(--shadow);}
+  .btn{border:none;border-radius:13px;padding:13px 20px;font-weight:800;font-size:15px;cursor:pointer;font-family:inherit;}
+  .btn.primary{background:var(--brand);color:#fff;} .btn.primary:hover{background:var(--brand-d);}
+  .btn.ghost{background:var(--bg);color:var(--ink);border:1px solid var(--line);}
+  .btn.big{font-size:17px;padding:15px 26px;}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+  .olabel{display:block;font-size:12.5px;font-weight:800;color:var(--ink-2);margin:2px 0 8px;}
+  .opts{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:12px 0;font-size:13.5px;color:var(--ink-2);}
+  .opts label{display:flex;align-items:center;gap:6px;cursor:pointer;} .opts input{accent-color:var(--brand);width:17px;height:17px;}
+  .status{font-size:13px;color:var(--good);min-height:16px;margin:6px 2px;font-weight:700;}
+  .ad{border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center;color:var(--muted);font-size:12px;background:var(--card);margin:16px 0;}
+  .seo h2{font-size:18px;margin:26px 0 10px;}
+  .howto{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;} @media(max-width:600px){.howto{grid-template-columns:1fr;}}
+  .howto .st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;}
+  .howto .st .n{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px;}
+  .howto .st b{display:block;margin:8px 0 2px;} .howto .st p{margin:0;font-size:13px;color:var(--ink-2);}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 15px;margin-bottom:8px;}
+  .faq summary{font-weight:800;cursor:pointer;font-size:14.5px;} .faq p{font-size:13.5px;color:var(--ink-2);margin:8px 0 0;}
+  .rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;} @media(max-width:600px){.rel-grid{grid-template-columns:1fr;}}
+  .rel{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-weight:800;} .rel:hover{border-color:var(--brand);}
+  .rel span{display:block;font-size:12px;color:var(--ink-2);font-weight:500;margin-top:2px;}
+  .care{background:var(--good-bg);border:1px solid var(--line);border-radius:12px;padding:12px 15px;font-size:12.5px;color:var(--ink-2);margin:14px 0;}
+  .foot{font-size:12px;color:var(--muted);text-align:center;margin-top:24px;line-height:1.95;}
+  .foot a{color:var(--ink-2);}
+
+
+  .stitle{width:100%;border:none;border-bottom:2px dashed var(--line);background:transparent;color:var(--ink);font-family:inherit;font-size:21px;font-weight:800;text-align:center;padding:8px;margin-bottom:6px;}
+  .sched-presets{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px;}
+  .pchip{border:1px solid var(--line);background:var(--bg);border-radius:22px;padding:9px 13px;font-size:14px;font-weight:700;cursor:pointer;color:var(--ink);font-family:inherit;}
+  .pchip:hover{border-color:var(--brand);color:var(--brand);}
+  .emopick{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0;}
+  .emobtn{width:40px;height:40px;border:1px solid var(--line);background:var(--bg);border-radius:11px;font-size:21px;cursor:pointer;line-height:1;}
+  .emobtn.on{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand);}
+  .addrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0;}
+  .sinput{flex:1;min-width:130px;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px;}
+  .stime{width:120px;padding:11px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--ink);font-family:inherit;font-size:15px;}
+  .slist{margin-top:14px;display:flex;flex-direction:column;gap:9px;}
+  .scard{display:flex;align-items:center;gap:11px;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 12px;}
+  .scard .emo{font-size:32px;flex:none;line-height:1;}
+  .scard .cbody{flex:1;min-width:0;}
+  .scard .txt{font-weight:800;font-size:17px;}
+  .scard .tm{font-size:13px;color:var(--ink-2);margin-left:8px;}
+  .scard.done{opacity:.5;} .scard.done .txt{text-decoration:line-through;}
+  .scard .chk{flex:none;width:42px;height:42px;border-radius:50%;border:2px solid var(--brand);background:var(--card);color:var(--brand);font-size:21px;font-weight:800;cursor:pointer;}
+  .scard.done .chk{background:var(--brand);color:#fff;}
+  .scard .mv{display:flex;flex-direction:column;gap:3px;}
+  .scard .mv button{width:28px;height:21px;border:1px solid var(--line);background:var(--bg);border-radius:6px;font-size:11px;cursor:pointer;color:var(--ink-2);}
+  .empty{text-align:center;color:var(--muted);font-size:14px;padding:18px;}
+  @media print{.sitebar,.answer,.ad,.seo,.foot,.noprint,header .free{display:none !important;}.scard .chk,.scard .mv{display:none !important;}.panel{box-shadow:none;border:none;}body{background:#fff;}.scard{border-color:#bbb;}}
+
+</style>
+</head>
+<body>
+<nav class="sitebar">
+  <a class="sb-brand" href="index.html"><span class="sb-logo">🌱</span>みとおし</a>
+  <div class="sb-links"><a href="index.html">ツール一覧</a><a href="about.html">このサイトについて</a></div>
+</nav>
+<div class="wrap">
+  <header class="hd">
+    <div class="brand"><div class="logo">📋</div><div><h1>絵スケジュール</h1><div class="tag">1日の“見通し”を絵カードで作る</div></div></div>
+    <div class="free">🌱 登録不要・無料</div>
+  </header>
+
+  <div class="answer">「おきる→あさごはん→はみがき…」のように、やることを<b>絵カードで順番に並べる</b>と、1日の見通しが作れます。できたらタップでチェック、そのまま印刷・PDF保存も可能。すべて端末内で動きます。</div>
+
+  <div class="panel">
+  <input class="stitle" id="stitle" maxlength="24" value="きょうのよてい">
+  <label class="olabel noprint">よくあるカードをタップして追加</label>
+  <div class="sched-presets noprint" id="presets"></div>
+  <div class="noprint">
+    <label class="olabel">じぶんで追加（マークをえらんで、やることを入力）</label>
+    <div class="emopick" id="emopick"></div>
+    <div class="addrow">
+      <input class="sinput" id="ntext" maxlength="20" placeholder="やること（例：ピアノ）">
+      <input class="stime" id="ntime" type="time">
+      <button class="btn primary" id="addBtn">追加</button>
+    </div>
+  </div>
+  <div class="slist" id="slist"></div>
+  <div class="empty" id="empty">上のカードをタップして、よていを作ってね。</div>
+  <div class="btnrow noprint">
+    <button class="btn primary" id="printBtn">印刷・PDF保存</button>
+    <button class="btn ghost" id="clearBtn">ぜんぶ消す</button>
+  </div>
+  <div class="status noprint" id="status"></div>
+</div>
+
+  <div class="ad">広告スペース（審査通過後に AdSense タグを挿入）</div>
+
+  <section class="seo">
+    <h2>使い方（3ステップ）</h2>
+    <div class="howto"><div class="st"><div class="n">1</div><b>カードを選ぶ</b><p>よくあるカードをタップ、または自分でマークとやることを追加します。</p></div><div class="st"><div class="n">2</div><b>順番に並べる</b><p>▲▼で並べ替え、時刻も入れられます。</p></div><div class="st"><div class="n">3</div><b>使う・印刷</b><p>できたら✓。印刷・PDF保存して貼っておけます。</p></div></div>
+    <h2>よくある質問</h2>
+    <div class="faq"><details open><summary>絵スケジュール（視覚スケジュール）とは何ですか？</summary><p>次に何をするかを絵と文字で示した予定表です。見通しが持てると安心でき、活動の切り替えがスムーズになります。自閉スペクトラムやADHDのお子さんの支援でよく使われます。</p></details><details><summary>印刷して使えますか？</summary><p>はい。「印刷・PDF保存」から、操作ボタンを除いたきれいな予定表を印刷・PDF化できます。冷蔵庫やお部屋に貼ってお使いください。</p></details><details><summary>作った予定は残りますか？</summary><p>同じ端末の同じブラウザなら、次に開いたときも内容が残ります（端末内に保存し、サーバーには送信しません）。</p></details><details><summary>データは送信されますか？</summary><p>いいえ。すべて端末内で処理し、内容が外部に送信されることはありません。</p></details></div>
+    <div class="care">※ このツールは日常の見通しづくりを助ける補助ツールです。医療・診断・治療を目的とするものではありません。お子さんに合う使い方は、必要に応じて専門家（医師・支援者）にもご相談ください。</div>
+    <h2>ほかのツール</h2>
+    <div class="rel-grid"><a class="rel" href="tool-visual-timer.html">⏳ 視覚タイマー <span>のこり時間が見てわかる</span></a><a class="rel" href="tool-task-steps.html">🪜 やることステップ <span>手順を分けて“つぎ”を示す</span></a><a class="rel" href="tool-feelings.html">😊 きもちメーター <span>気持ちを見える化</span></a><a class="rel" href="tool-reward-chart.html">⭐ がんばり表 <span>ごほうびまで貯める</span></a><a class="rel" href="index.html">🌱 ツール一覧 <span>みとおしの無料ツール</span></a></div>
+  </section>
+
+  <div class="foot"><a href="index.html">ツール一覧</a> ・ <a href="about.html">このサイトについて</a> ・ <a href="privacy.html">プライバシー</a> ・ <a href="terms.html">利用規約</a><br>みとおし ・ 最終更新：2026-07-20 ・ すべての操作は端末内で完結します</div>
+</div>
+<script>(function(){
+  var PRE=[['🌅','おきる'],['🍽️','あさごはん'],['🚽','トイレ'],['🪥','はみがき'],['👕','きがえ'],['🧼','てあらい'],['🎒','がっこう'],['✏️','おべんきょう'],['🧺','おかたづけ'],['🧸','あそび'],['🍪','おやつ'],['🍚','ごはん'],['🛁','おふろ'],['📖','えほん'],['😴','ねる']];
+  var EMO=['⭐','🌅','🍽️','🚽','🪥','👕','🧼','🎒','✏️','🧺','🧸','🍪','🍚','🛁','📖','😴','📺','🚌','🏥','💊','⚽','🎹','🖍️','🧩','🐟','🐶'];
+  var items=[], pickEmo='⭐';
+  var slist=document.getElementById('slist'), empty=document.getElementById('empty'), status=document.getElementById('status');
+  function say(m){status.textContent=m||'';}
+  function save(){try{localStorage.setItem('mitooshi_sched',JSON.stringify({t:document.getElementById('stitle').value,items:items}));}catch(e){}}
+  function load(){try{var d=JSON.parse(localStorage.getItem('mitooshi_sched')||'null');if(d&&d.items){items=d.items;if(d.t)document.getElementById('stitle').value=d.t;}}catch(e){}}
+  (function(){var box=document.getElementById('presets');PRE.forEach(function(p){var b=document.createElement('button');b.type='button';b.className='pchip';b.textContent=p[0]+' '+p[1];b.addEventListener('click',function(){add(p[0],p[1],'');});box.appendChild(b);});})();
+  (function(){var box=document.getElementById('emopick');EMO.forEach(function(e,i){var b=document.createElement('button');b.type='button';b.className='emobtn'+(i===0?' on':'');b.textContent=e;b.addEventListener('click',function(){pickEmo=e;box.querySelectorAll('.emobtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');});box.appendChild(b);});})();
+  function add(e,t,time){items.push({e:e,t:t,time:time||'',done:false});render();save();}
+  function render(){
+    slist.innerHTML=''; empty.style.display=items.length?'none':'';
+    items.forEach(function(it,i){
+      var d=document.createElement('div');d.className='scard'+(it.done?' done':'');
+      d.innerHTML='<span class="emo"></span><div class="cbody"><span class="txt"></span><span class="tm"></span></div><button class="chk" title="できた">✓</button><div class="mv"><button data-a="up">▲</button><button data-a="down">▼</button><button data-a="del">×</button></div>';
+      d.querySelector('.emo').textContent=it.e; d.querySelector('.txt').textContent=it.t; d.querySelector('.tm').textContent=it.time||'';
+      d.querySelector('.chk').addEventListener('click',function(){it.done=!it.done;render();save();});
+      d.querySelector('[data-a=up]').addEventListener('click',function(){if(i>0){items.splice(i-1,0,items.splice(i,1)[0]);render();save();}});
+      d.querySelector('[data-a=down]').addEventListener('click',function(){if(i<items.length-1){items.splice(i+1,0,items.splice(i,1)[0]);render();save();}});
+      d.querySelector('[data-a=del]').addEventListener('click',function(){items.splice(i,1);render();save();});
+      slist.appendChild(d);
+    });
+  }
+  document.getElementById('addBtn').addEventListener('click',function(){var t=document.getElementById('ntext').value.trim();if(!t){say('やることを入れてね。');return;}add(pickEmo,t,document.getElementById('ntime').value);document.getElementById('ntext').value='';document.getElementById('ntime').value='';say('');});
+  document.getElementById('ntext').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('addBtn').click();});
+  document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  document.getElementById('clearBtn').addEventListener('click',function(){if(!items.length)return;if(confirm('ぜんぶ消しますか？')){items=[];render();save();}});
+  document.getElementById('stitle').addEventListener('input',save);
+  load();render();
+  window.__tool={add:add,items:function(){return items;},count:function(){return items.length;},toggle:function(i){items[i].done=!items[i].done;render();},done:function(i){return items[i].done;},clearAll:function(){items=[];render();}};
+})();</script>
+</body>
+</html>
