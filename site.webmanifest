@@ -2,15 +2,104 @@
   "name": "みとおし",
   "short_name": "みとおし",
   "description": "発達が気になる子のための無料視覚支援ツール",
-  "start_url": "/",
+  "start_url": "/?utm_source=pwa&utm_medium=homescreen",
   "display": "standalone",
   "background_color": "#f6f7f6",
   "theme_color": "#2f9e8f",
   "icons": [
     {
-      "src": "favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "scope": "/",
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "orientation": "any",
+  "lang": "ja",
+  "dir": "ltr",
+  "categories": [
+    "utilities",
+    "productivity"
+  ],
+  "shortcuts": [
+    {
+      "name": "視覚タイマー",
+      "short_name": "視覚タイマー",
+      "url": "/tool-visual-timer.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "絵カードスケジュール（絵スケジュール）",
+      "short_name": "絵カードスケジュール（絵",
+      "url": "/tool-picture-schedule.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "やることステップ",
+      "short_name": "やることステップ",
+      "url": "/tool-task-steps.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "きもちメーター",
+      "short_name": "きもちメーター",
+      "url": "/tool-feelings.html",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }
