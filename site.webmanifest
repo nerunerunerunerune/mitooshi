@@ -56,7 +56,7 @@
     {
       "name": "視覚タイマー",
       "short_name": "視覚タイマー",
-      "url": "/tool-visual-timer.html",
+      "url": "/tool-visual-timer",
       "icons": [
         {
           "src": "/icon-192.png",
@@ -68,7 +68,7 @@
     {
       "name": "絵カードスケジュール（絵スケジュール）",
       "short_name": "絵カードスケジュール（絵",
-      "url": "/tool-picture-schedule.html",
+      "url": "/tool-picture-schedule",
       "icons": [
         {
           "src": "/icon-192.png",
@@ -80,7 +80,7 @@
     {
       "name": "やることステップ",
       "short_name": "やることステップ",
-      "url": "/tool-task-steps.html",
+      "url": "/tool-task-steps",
       "icons": [
         {
           "src": "/icon-192.png",
@@ -92,7 +92,7 @@
     {
       "name": "きもちメーター",
       "short_name": "きもちメーター",
-      "url": "/tool-feelings.html",
+      "url": "/tool-feelings",
       "icons": [
         {
           "src": "/icon-192.png",
