@@ -1,7 +1,7 @@
 /* かわたれ studio ― PWA サービスワーカー
    目的: オフラインでも動くこと / 2回目以降を速くすること
    方針: 広告・計測など外部リクエストには一切触れない            */
-var VER   = 'v1-20260727';
+var VER   = 'v2-20260801';
 var SHELL = 'shell-' + VER;
 var RT    = 'rt-' + VER;
 
@@ -10,7 +10,7 @@ var CORE = ['/', '/favicon.svg', '/site.webmanifest',
             '/icon-192.png', '/icon-512.png', '/apple-touch-icon.png'];
 
 /* 余裕があれば入れておきたいページ（失敗しても無視する） */
-var EXTRA = ["/about.html", "/privacy.html", "/terms.html", "/tool-feelings.html", "/tool-picture-schedule.html", "/tool-reward-chart.html", "/tool-task-steps.html", "/tool-visual-timer.html"];
+var EXTRA = ["/about", "/privacy", "/terms", "/tool-feelings", "/tool-picture-schedule", "/tool-reward-chart", "/tool-task-steps", "/tool-visual-timer"];
 
 self.addEventListener('install', function(e){
   e.waitUntil(
