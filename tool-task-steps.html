@@ -61,6 +61,9 @@
   .status{font-size:13px;color:var(--good);min-height:16px;margin:6px 2px;font-weight:700;}
   .ad{border:1px dashed var(--line);border-radius:14px;padding:14px;text-align:center;color:var(--muted);font-size:12px;background:var(--card);margin:16px 0;}
   .seo h2{font-size:18px;margin:26px 0 10px;}
+  .seo p{font-size:14.5px;line-height:1.9;margin:8px 0;}
+  .seo ul{margin:8px 0;padding-left:22px;} .seo li{font-size:14.5px;line-height:1.9;margin:6px 0;}
+  .note-read{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14px;line-height:1.9;}
   .howto{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;} @media(max-width:600px){.howto{grid-template-columns:1fr;}}
   .howto .st{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;}
   .howto .st .n{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px;}
@@ -135,7 +138,31 @@
   <section class="seo">
     <h2>使い方（3ステップ）</h2>
     <div class="howto"><div class="st"><div class="n">1</div><b>テンプレを選ぶ</b><p>歯みがき・手あらいなどをタップすると手順が入ります。</p></div><div class="st"><div class="n">2</div><b>つぎを見る</b><p>いま取り組む手順が「つぎ」と強調されます。</p></div><div class="st"><div class="n">3</div><b>できたら✓</b><p>一つずつ進み、全部できたらお祝い。印刷もできます。</p></div></div>
-    <h2>よくある質問</h2>
+  
+  <h2>「つぎ」を1つだけ強調している理由</h2>
+  <p>手順を並べただけの表と、このツールの違いは1点です。<b>いま取り組むところだけが目立つ</b>ようにしてあります。</p>
+  <p>全部の手順が同じ強さで見えていると、どこを見ればよいのか分かりません。手順表を作ったのに動き出せない、という状態はここで起きます。終わったものに✓が付いて、次の1つが強調される。この形にすると、見る場所が1か所に決まります。</p>
+  <p>定番のテンプレートをタップだけで入れられるようにしてあるのも、作る側の負担を減らすためです。ゼロから手順を書き出す作業は、思っているより重い。まずテンプレートで動かしてみて、合わない部分だけ直すほうが早く始められます。</p>
+
+  <div class="note-read">
+    <b>最初は3つ程度に粗く分けてください。</b>細かく分けるほど丁寧に見えますが、数が増えると見ること自体が作業になります。実際に使って詰まる箇所が見つかったら、そこだけ細かく割り直す。この順番のほうが、完成した手順表より役に立ちます。
+  </div>
+
+  <h2>手順表にしなくてよい作業</h2>
+  <ul>
+    <li><b>毎回内容が変わる作業</b>：手順が固定していないと、作り直しの手間が効果を上回ります。</li>
+    <li><b>すでに一人でできている作業</b>：できていることに手順表を出すと、かえって混乱のもとになります。</li>
+    <li><b>手順ではなく時間が問題の場合</b>：「何をするか」は分かっていて「いつ終わるか」が分からないなら、視覚タイマーのほうが合います。</li>
+  </ul>
+
+  <h2>分け方に迷ったら</h2>
+  <p>「じゅんびして」というひとことがなぜ通りにくいのか、朝の支度・帰宅後・お風呂を例にした分け方は、別の記事にまとめています。</p>
+  <div class="rel-grid">
+    <a class="rel" href="article-task-steps-wakekata">📖 「じゅんびして」が伝わらない理由 <span>手順の分け方と場面別の例</span></a>
+    <a class="rel" href="article-picture-schedule-tsukurikata">📖 絵カードスケジュールの作り方 <span>1日の流れを見せる</span></a>
+  </div>
+
+  <h2>よくある質問</h2>
     <div class="faq"><details open><summary>タスク分解（手順の見える化）とは何ですか？</summary><p>1つの活動を「コップに水→歯ブラシ→…」のように小さな手順に分けて示すことです。次に何をするかが明確になり、見通しを持って最後まで取り組みやすくなります。</p></details><details><summary>自分で手順を作れますか？</summary><p>はい。テンプレを使わず、マークと文でオリジナルの手順を追加・並べ替えできます。</p></details><details><summary>内容は保存されますか？</summary><p>同じ端末の同じブラウザなら、次回も続きから使えます（端末内保存・送信なし）。</p></details><details><summary>印刷して使えますか？</summary><p>はい。「印刷・PDF保存」できれいに出力でき、壁に貼って使えます。</p></details></div>
     <div class="care">※ このツールは日常の見通しづくりを助ける補助ツールです。医療・診断・治療を目的とするものではありません。お子さんに合う使い方は、必要に応じて専門家（医師・支援者）にもご相談ください。</div>
     <h2>ほかのツール</h2>
