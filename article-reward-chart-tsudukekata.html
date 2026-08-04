@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>がんばり表の作り方と続け方 ― ごほうびで失敗しないために｜みとおし</title>
+<meta name="description" content="がんばり表（トークンエコノミー）の基本的な考え方と作り方、途中で機能しなくなる典型パターンと、その避け方をまとめました。">
+<link rel="canonical" href="https://mitooshi.kawatare.studio/article-reward-chart-tsudukekata">
+<meta name="theme-color" content="#2f9e8f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="みとおし">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="みとおし">
+<meta property="og:title" content="がんばり表の作り方と続け方 ― ごほうびで失敗しないために">
+<meta property="og:description" content="がんばり表（トークンエコノミー）の基本的な考え方と作り方、途中で機能しなくなる典型パターンと、その避け方をまとめました。">
+<meta property="og:url" content="https://mitooshi.kawatare.studio/article-reward-chart-tsudukekata">
+<meta property="og:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="がんばり表の作り方と続け方 ― ごほうびで失敗しないために">
+<meta name="twitter:description" content="がんばり表（トークンエコノミー）の基本的な考え方と作り方、途中で機能しなくなる典型パターンと、その避け方をまとめました。">
+<meta name="twitter:image" content="https://mitooshi.kawatare.studio/ogp.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"がんばり表の作り方と続け方 ― ごほうびで失敗しないために","author":{"@type":"Organization","name":"かわたれ studio"},"publisher":{"@type":"Organization","name":"かわたれ studio"},"datePublished":"2026-08-04","dateModified":"2026-08-04","description":"がんばり表（トークンエコノミー）の基本的な考え方と作り方、途中で機能しなくなる典型パターンと、その避け方をまとめました。"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"ごほうびは物でなければいけませんか？","acceptedAnswer":{"@type":"Answer","text":"物である必要はありません。一緒に遊ぶ時間、好きな絵本を読む、寝る前に少し長くお話しする、といった関わりそのものがごほうびになることも多くあります。むしろ物に偏ると用意し続けるのが難しくなるので、関わりを中心にしておくほうが長く続きます。"}},{"@type":"Question","name":"できなかったときは印を減らすべきですか？","acceptedAnswer":{"@type":"Answer","text":"減らさないことをおすすめします。減らす仕組みを入れると、たまった分を失う不安が中心になり、取り組み自体が嫌なものになりやすくなります。できなかったときは増えないだけに留め、できたときに確実に増やすほうが機能します。"}},{"@type":"Question","name":"いくつたまったら交換するのがよいですか？","acceptedAnswer":{"@type":"Answer","text":"最初は3つから5つ程度が目安です。数が多いとゴールが遠く感じられ、途中で関心が切れてしまいます。交換できた経験を何度か重ねてから、少しずつ増やすほうが無理がありません。"}},{"@type":"Question","name":"いつまで続ければよいですか？","acceptedAnswer":{"@type":"Answer","text":"印がなくてもできる場面が増えてきたら、少しずつ減らしていって構いません。この仕組みは目的ではなく、行動が定着するまでの足場です。なお、これは補助的な方法であり効果を保証するものではありません。うまくいかない場合は専門家にもご相談ください。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"みとおし","item":"https://mitooshi.kawatare.studio/"},{"@type":"ListItem","position":2,"name":"がんばり表の作り方と続け方","item":"https://mitooshi.kawatare.studio/article-reward-chart-tsudukekata"}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-67QEGPJ09R"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-67QEGPJ09R');</script>
+<style>
+  :root{--bg:#f6f7f6;--card:#ffffff;--ink:#242a28;--ink-2:#5d6763;--muted:#9aa4a0;--line:#e6ebe8;
+    --brand:#2f9e8f;--brand-d:#25806f;--accent:#f2795f;--good:#2fa36b;--good-bg:#e6f5ec;
+    --shadow:0 1px 2px rgba(20,30,25,.04),0 8px 22px rgba(20,30,25,.06);}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f1413;--card:#18201e;--ink:#eef3f1;--ink-2:#a9b4b0;--muted:#7c8783;
+    --line:#28302e;--brand:#4cc3b2;--brand-d:#7ad6c8;--accent:#ff9b83;--good:#4cc38a;--good-bg:#153224;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.42);}}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);line-height:1.85;
+    font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:var(--brand);}
+  .sitebar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;}
+  .sb-brand{display:flex;align-items:center;gap:9px;font-weight:800;text-decoration:none;color:var(--ink);font-size:16px;}
+  .sb-logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:16px;}
+  .sb-links{display:flex;gap:13px;font-size:14px;font-weight:700;} .sb-links a{text-decoration:none;color:var(--ink-2);} .sb-links a:hover{color:var(--brand);}
+  .wrap{max-width:900px;margin:0 auto;padding:24px 18px 70px;}
+  .hero{text-align:center;padding:22px 10px 6px;}
+  .hero h1{font-size:29px;margin:6px 0 12px;line-height:1.35;}
+  .hero p{font-size:15.5px;color:var(--ink-2);max-width:640px;margin:0 auto;}
+  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px;}
+  .chip{font-size:12.5px;font-weight:800;color:var(--good);background:var(--good-bg);padding:6px 13px;border-radius:20px;}
+  h2{font-size:21px;margin:40px 0 6px;} .lead2{color:var(--ink-2);font-size:14px;margin:0 0 14px;}
+  .tools{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;} @media(max-width:720px){.tools{grid-template-columns:1fr;}}
+  .tool{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow);transition:.15s;}
+  .tool:hover{transform:translateY(-2px);border-color:var(--brand);}
+  .tool .ic{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:26px;background:var(--bg);}
+  .tool h3{margin:13px 0 5px;font-size:18px;} .tool p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .tool .go{margin-top:11px;font-size:13.5px;font-weight:800;color:var(--brand);}
+  .use{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px;} @media(max-width:720px){.use{grid-template-columns:1fr;}}
+  .use .u{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;}
+  .use .u b{display:block;margin-bottom:5px;font-size:15px;} .use .u p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .use .u .to{margin-top:8px;font-size:12.5px;font-weight:800;color:var(--brand);}
+  .why{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px;} @media(max-width:720px){.why{grid-template-columns:1fr;}}
+  .why .w{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;} .why .w b{display:block;margin-bottom:4px;} .why .w p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .care{background:var(--good-bg);border:1px solid var(--line);border-radius:14px;padding:14px 17px;font-size:13px;color:var(--ink-2);margin:16px 0;}
+  .faq{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:6px 18px;}
+  .faq details{border-bottom:1px solid var(--line);padding:13px 0;} .faq details:last-child{border-bottom:none;}
+  .faq summary{font-weight:800;cursor:pointer;font-size:15px;} .faq p{font-size:13.5px;color:var(--ink-2);margin:8px 0 0;}
+  .crumb{font-size:12.5px;color:var(--muted);margin:2px 0 14px;} .crumb a{color:var(--ink-2);text-decoration:none;}
+  .page-h1{font-size:26px;margin:4px 0 6px;} .lead{font-size:15px;color:var(--ink-2);margin:0 0 20px;}
+  .cardp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);}
+  .prose h2{font-size:19px;margin:28px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line);} .prose h2:first-child{margin-top:4px;}
+  .prose p{margin:8px 0;font-size:14.5px;} .prose ul{margin:8px 0;padding-left:22px;} .prose li{margin:6px 0;font-size:14.5px;}
+  .prose dt{font-weight:800;font-size:14px;margin-top:12px;} .prose dd{margin:2px 0 0;font-size:14.5px;color:var(--ink-2);}
+  .cta{display:inline-block;text-decoration:none;font-weight:800;font-size:15px;padding:12px 22px;border-radius:13px;background:var(--brand);color:#fff;margin-top:8px;}
+  footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);text-align:center;line-height:2;}
+  footer a{color:var(--ink-2);text-decoration:none;margin:0 7px;}
+
+  .prose h3{font-size:16px;margin:20px 0 6px;}
+  .prose ol{margin:8px 0;padding-left:22px;} .prose ol li{margin:8px 0;font-size:14.5px;}
+  .note{background:var(--good-bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:18px 0;font-size:13.5px;color:var(--ink-2);}
+  .rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;} @media(max-width:600px){.rel-grid{grid-template-columns:1fr;}}
+  .rel{display:block;text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px;font-weight:800;} .rel:hover{border-color:var(--brand);}
+  .rel span{display:block;font-size:12px;color:var(--ink-2);font-weight:500;margin-top:2px;}
+</style>
+</head>
+<body>
+<nav class="sitebar"><a class="sb-brand" href="/"><span class="sb-logo">🌱</span>みとおし</a><div class="sb-links"><a href="/">ツール一覧</a><a href="about">このサイトについて</a></div></nav>
+<div class="wrap">
+  <div class="crumb"><a href="/">ホーム</a> ／ がんばり表の作り方と続け方</div>
+  <h1 class="page-h1">がんばり表の作り方と続け方 ― ごほうびで失敗しないために</h1>
+  <p class="lead">シールを貼る仕組みは、作り方より「続け方」で差が出ます。</p>
+  <div class="cardp prose">
+
+  <h2>結論</h2>
+  <p>がんばり表は、できたことをその場で目に見える形にし、たまったら決めておいたごほうびと交換する仕組みです。「トークンエコノミー」とも呼ばれます。</p>
+  <p>この仕組みでつまずく原因は、たいてい作り方ではなく設定の甘さにあります。とくに多いのが、<b>目標があいまい</b>、<b>ためる数が多すぎる</b>、<b>途中でルールを変えてしまう</b>の3つです。ここさえ押さえれば、道具そのものは紙でも画面でも構いません。</p>
+
+  <h2>なぜ「見える形」にすると続きやすいのか</h2>
+  <p>ほめ言葉は、その場で消えてしまいます。「さっきできたね」と言われても、どれくらいできているのかは残りません。印がたまっていく形にすると、<b>これまでの積み重ねがそのまま見える</b>ようになります。</p>
+  <p>もうひとつは、ごほうびが遠すぎないことです。「できたら週末に」では、いま頑張る理由と結びつきにくくなります。印がその場で1つ増えるなら、行動と結果が近い場所でつながります。</p>
+  <p>大人の側にも利点があります。何ができていて何が残っているかが見えるので、注意する回数が自然に減り、できている部分に目が向きやすくなります。</p>
+
+  <h2>作り方の手順</h2>
+  <ol>
+    <li><b>目標を1つだけ決める</b>：欲張らず、いま一番助けたい行動を1つ選びます。複数あると、どれで印がもらえるのか分からなくなります。</li>
+    <li><b>「できた」の基準を動作で書く</b>：「ちゃんと片づける」ではなく「おもちゃを箱に入れる」のように、見て判定できる形にします。基準があいまいだと、もらえたりもらえなかったりして納得感がなくなります。</li>
+    <li><b>ためる数を少なくする</b>：最初は3つや5つで交換できるくらいがおすすめです。10個以上にすると、ゴールが遠すぎて途中で関心が切れます。</li>
+    <li><b>ごほうびを一緒に決める</b>：大人が決めたものより、本人が選んだもののほうが力を持ちます。物でなくてもよく、「一緒に遊ぶ時間」「好きな絵本を読む」なども立派なごほうびです。</li>
+    <li><b>その場ですぐ印をつける</b>：あとでまとめてではなく、できた直後につけます。時間が空くほど、行動と結果のつながりが薄れます。</li>
+  </ol>
+
+  <h2>目標の決め方で、うまくいくかが決まる</h2>
+  <p>この仕組みの成否は、ほとんど目標設定で決まります。目安は3つです。</p>
+  <ul>
+    <li><b>いまの状態から少しだけ上を狙う</b>：まったくできていないことをいきなり目標にすると、印がたまらないまま終わります。5回に1回できていることなら、3回に1回を目指す、くらいの幅が現実的です。</li>
+    <li><b>やめることより、やることを書く</b>：「たたかない」のような否定形は、何をすればよいかを示していません。「いやなときは、はなす」のように、代わりにする行動を目標にするほうが取り組めます。</li>
+    <li><b>本人が納得している</b>：大人だけで決めた目標は、他人の課題になります。何を目指すか、何と交換するかを一緒に決めると、自分のこととして扱いやすくなります。</li>
+  </ul>
+  <p>目標が合っているかどうかは、数日使えば分かります。印がまったく増えないなら難しすぎ、毎回すぐたまるなら易しすぎです。どちらも調整すればよいだけで、失敗ではありません。設定を直すことは、仕組みがうまく働いている証拠でもあります。</p>
+  <p>なお、目標は増やさないほうがうまくいきます。ひとつ定着したから次を足す、と重ねていくと、どれも中途半端になりがちです。定着したものは仕組みから外し、常に取り組む対象は1つだけにしておくと、本人にとっても分かりやすい状態が保てます。</p>
+
+  <h2>途中で機能しなくなる典型パターン</h2>
+  <ul>
+    <li><b>失敗したときに印を減らす</b>：これをやると、仕組み全体が「取られるもの」に変わります。減らす罰は入れず、増えないだけに留めるほうが安全です。</li>
+    <li><b>できて当たり前になり、条件を上げる</b>：うまくいき始めたときに基準を厳しくすると、努力しても届かなくなります。目標を上げるなら、別の目標として新しく立てるほうが混乱しません。</li>
+    <li><b>大人が印をつけ忘れる</b>：本人にとっては約束が守られなかったことになります。続けられる範囲の仕組みにしておくことが大切です。</li>
+    <li><b>ごほうびが渡されない</b>：一度でもここが崩れると、仕組みへの信頼がなくなります。渡せる約束だけをすることが前提です。</li>
+    <li><b>いつまでも続けようとする</b>：定着してきたら、印がなくてもできる形へ少しずつ移していきます。仕組みは目的ではなく、途中の足場です。</li>
+  </ul>
+
+  <h2>園や学校と共有するとき</h2>
+  <p>家庭で効果があった場合、園や学校でも同じ仕組みを使いたくなることがあります。共有するときは、表そのものより<b>目標と基準を先に伝える</b>ほうが伝わります。「何ができたら印がつくのか」が同じでないと、場所によってもらえたりもらえなかったりして、本人が混乱するためです。</p>
+  <p>また、家庭と園・学校で別々の表を持つ形でも構いません。無理にひとつにまとめようとすると更新が追いつかず、どちらも中途半端になります。それぞれの場所で、その場に合った目標を1つずつ立てるほうが現実的です。</p>
+  <p>伝えるときは「うまくいっている場面」も一緒に共有すると、先生の側も再現しやすくなります。困っていることだけを伝えるより、できている条件が分かるほうが、次の一手を考えやすいためです。</p>
+
+  <h2>今すぐ使えるツール</h2>
+  <p>みとおしの<a href="tool-reward-chart">がんばり表</a>は、目標とためる数を決めて、できたその場で印をためられるツールです。紙やシールの準備がいらないので、まず試してみたいときに向いています。入力した内容は端末の中だけで扱われ、外部には送信されません。</p>
+  <p>「何をしたら印がもらえるのか」を手順として示したい場合は<a href="tool-task-steps">やることステップ</a>と組み合わせると、行動と結果の対応がはっきりします。</p>
+
+
+  <h2>よくある質問</h2>
+  <h3>ごほうびは物でなければいけませんか？</h3>
+  <p>物である必要はありません。一緒に遊ぶ時間、好きな絵本を読む、寝る前に少し長くお話しする、といった関わりそのものがごほうびになることも多くあります。むしろ物に偏ると用意し続けるのが難しくなるので、関わりを中心にしておくほうが長く続きます。</p>
+  <h3>できなかったときは印を減らすべきですか？</h3>
+  <p>減らさないことをおすすめします。減らす仕組みを入れると、たまった分を失う不安が中心になり、取り組み自体が嫌なものになりやすくなります。できなかったときは増えないだけに留め、できたときに確実に増やすほうが機能します。</p>
+  <h3>いくつたまったら交換するのがよいですか？</h3>
+  <p>最初は3つから5つ程度が目安です。数が多いとゴールが遠く感じられ、途中で関心が切れてしまいます。交換できた経験を何度か重ねてから、少しずつ増やすほうが無理がありません。</p>
+  <h3>いつまで続ければよいですか？</h3>
+  <p>印がなくてもできる場面が増えてきたら、少しずつ減らしていって構いません。この仕組みは目的ではなく、行動が定着するまでの足場です。なお、これは補助的な方法であり効果を保証するものではありません。うまくいかない場合は専門家にもご相談ください。</p>
+
+  <h2>関連ツール</h2>
+  <div class="rel-grid">
+    <a class="rel" href="tool-reward-chart">⭐ がんばり表 <span>できたその場で印をためる</span></a>
+    <a class="rel" href="tool-task-steps">📋 やることステップ <span>手順を分けて「つぎ」を示す</span></a>
+  </div>
+
+<div class="note"><b>お読みください。</b>この記事とみとおしのツールは、日々の見通しづくりを助ける<b>補助的なもの</b>です。医療・診断・治療を目的とするものではなく、特定の効果を保証するものでもありません。合う方法はお子さんによって違います。気になることがあるときは、医師・臨床心理士・特別支援の先生など専門家にもご相談ください。</div>
+  <div><a class="cta" href="/">ツール一覧を見る</a></div>
+  </div>
+  <footer><div><a href="/">ツール一覧</a>・<a href="about">このサイトについて</a>・<a href="privacy">プライバシー</a>・<a href="terms">利用規約</a>・<a href="https://kawatare.studio/">かわたれ studio</a></div><div>みとおし ・ 最終更新：2026-08-04</div></footer>
+</div>
+</body>
+</html>
