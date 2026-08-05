@@ -92,6 +92,10 @@
   .goalshow{text-align:center;font-weight:800;color:var(--ink);min-height:20px;}
   @media print{.sitebar,.answer,.ad,.seo,.foot,.noprint,header .free{display:none !important;}.panel{box-shadow:none;border:none;}body{background:#fff;}.token{filter:none;}}
 
+  .aff{background:var(--good-bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:18px 0;}
+  .aff-tag{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--ink-2);padding:2px 8px;border-radius:5px;}
+  .aff-text{margin:8px 0 6px;font-size:13.5px;color:var(--ink-2);line-height:1.8;}
+  .aff-links{margin:0;font-size:13.5px;line-height:1.9;} .aff-links a{font-weight:800;}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-67QEGPJ09R"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-67QEGPJ09R');</script>
@@ -133,12 +137,7 @@
 </div>
 
 
-  <!-- AFFILIATE SLOT: もしもアフィリエイト「かんたんリンク」登録後、下のURLをアフィリエイトタグ付きURLに置き換えること。対象: ごほうび表・シール台紙 -->
-  <div class="ad" style="text-align:left;line-height:1.7"><span style="font-weight:800;color:var(--ink-2)">PR</span>　紙のごほうび表やシール台紙をお探しの方へ。 　<a href="https://www.amazon.co.jp/s?k=%E3%81%94%E3%81%BB%E3%81%86%E3%81%B3%E8%A1%A8%20%E3%82%B7%E3%83%BC%E3%83%AB%20%E5%8F%B0%E7%B4%99" target="_blank" rel="noopener sponsored">ごほうび表・シール台紙 を見る（Amazon）</a></div>
-
-  <section class="seo">
-    <h2>使い方（3ステップ）</h2>
-    <div class="howto"><div class="st"><div class="n">1</div><b>目標を決める</b><p>がんばること・ごほうび・必要な数を入れて「作る」。</p></div><div class="st"><div class="n">2</div><b>貯める</b><p>できたらマークをタップ。進み具合が見えます。</p></div><div class="st"><div class="n">3</div><b>達成・印刷</b><p>全部たまるとお祝い表示。印刷・PDF保存もできます。</p></div></div>
+  <div class="aff" data-aff="mitooshi/tool-reward-chart"><span class="aff-tag">PR</span><p class="aff-text">紙のごほうび表やシール台紙をお探しの方へ。</p><p class="aff-links"><a href="https://www.amazon.co.jp/s?k=%E3%81%94%E3%81%BB%E3%81%86%E3%81%B3%E8%A1%A8%20%E3%82%B7%E3%83%BC%E3%83%AB%20%E5%8F%B0%E7%B4%99" target="_blank" rel="noopener sponsored nofollow" data-aff-click="amazon_search">ごほうび表・シール台紙 を見る（Amazon）</a></p></div>
     <h2>トークンエコノミーとは</h2>
     <p>トークンエコノミー（token economy）は、望ましい行動ができたときに「トークン（しるし・ポイント・シール）」を渡し、決めた数がたまったら「ごほうび」と交換する、行動を後押しする方法です。応用行動分析（ABA）でも使われ、家庭・保育・学校・放課後等デイなど幅広い場で活用されています。「あと何個でごほうび」が目に見えることで見通しが立ち、やる気と自信につながります。</p>
     <p>「がんばり表」は、このトークンエコノミーを<b>画面上でタップして貯めるデジタル版</b>です。印刷して壁に貼る紙のごほうび表と違い、スマホやタブレットでその場ですぐ始められ、数や目標も自由に変えられます（もちろん印刷・PDF保存も可能）。</p>
@@ -265,5 +264,24 @@ if(isIOS&&isSafari){setTimeout(function(){build('共有ボタン → 「ホー�
 })();
 </script>
 <!-- pwa:end -->
+<script>
+/* アフィリエイトのクリック計測。失敗してもリンク遷移は妨げない。 */
+(function(){
+  document.addEventListener('click', function(e){
+    try{
+      var a = e.target && e.target.closest && e.target.closest('a[data-aff-click]');
+      if(!a) return;
+      var slot = a.closest('.aff');
+      if(typeof gtag === 'function'){
+        gtag('event','affiliate_click',{
+          program: a.getAttribute('data-aff-click') || '',
+          slot: (slot && slot.getAttribute('data-aff')) || '',
+          link_url: a.href || ''
+        });
+      }
+    }catch(err){/* 計測の失敗は無視する */}
+  }, true);
+})();
+</script>
 </body>
 </html>

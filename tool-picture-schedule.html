@@ -102,6 +102,10 @@
   .empty{text-align:center;color:var(--muted);font-size:14px;padding:18px;}
   @media print{.sitebar,.answer,.ad,.seo,.foot,.noprint,header .free{display:none !important;}.scard .chk,.scard .mv{display:none !important;}.panel{box-shadow:none;border:none;}body{background:#fff;}.scard{border-color:#bbb;}}
 
+  .aff{background:var(--good-bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:18px 0;}
+  .aff-tag{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--ink-2);padding:2px 8px;border-radius:5px;}
+  .aff-text{margin:8px 0 6px;font-size:13.5px;color:var(--ink-2);line-height:1.8;}
+  .aff-links{margin:0;font-size:13.5px;line-height:1.9;} .aff-links a{font-weight:800;}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-67QEGPJ09R"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-67QEGPJ09R');</script>
@@ -142,12 +146,7 @@
 </div>
 
 
-  <!-- AFFILIATE SLOT: もしもアフィリエイト「かんたんリンク」登録後、下のURLをアフィリエイトタグ付きURLに置き換えること。対象: 絵カード・コミュニケーションカード教材 -->
-  <div class="ad" style="text-align:left;line-height:1.7"><span style="font-weight:800;color:var(--ink-2)">PR</span>　印刷して使えるカード教材やラミネート用品。 　<a href="https://www.amazon.co.jp/s?k=%E7%B5%B5%E3%82%AB%E3%83%BC%E3%83%89%20%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%20%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" target="_blank" rel="noopener sponsored">絵カード・コミュニケーションカード教材 を見る（Amazon）</a></div>
-
-  <section class="seo">
-    <h2>使い方（3ステップ）</h2>
-    <div class="howto"><div class="st"><div class="n">1</div><b>カードを選ぶ</b><p>よくあるカードをタップ、または自分でマークとやることを追加します。</p></div><div class="st"><div class="n">2</div><b>順番に並べる</b><p>▲▼で並べ替え、時刻も入れられます。</p></div><div class="st"><div class="n">3</div><b>使う・印刷</b><p>できたら✓。印刷・PDF保存して貼っておけます。</p></div></div>
+  <div class="aff" data-aff="mitooshi/tool-picture-schedule"><span class="aff-tag">PR</span><p class="aff-text">印刷して使えるカード教材やラミネート用品。</p><p class="aff-links"><a href="https://www.amazon.co.jp/s?k=%E7%B5%B5%E3%82%AB%E3%83%BC%E3%83%89%20%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%20%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" target="_blank" rel="noopener sponsored nofollow" data-aff-click="amazon_search">絵カード・コミュニケーションカード教材 を見る（Amazon）</a></p></div>
     <h2>絵カードスケジュールとは</h2>
     <p>絵カードスケジュール（視覚スケジュール）は、「次に何をするか」を絵と文字で順番に示した予定表です。時計や文章だけでは見通しが持ちにくいお子さんでも、絵カードで並べると1日の流れが直感的に分かり、活動の切り替えがスムーズになります。自閉スペクトラム（ASD）やADHDのお子さんの支援で広く使われています。</p>
     <p>この「絵スケジュール」は、絵カードスケジュールを<b>ブラウザ上でその場で作れる無料ツール</b>です。カードを印刷したりアプリを入れたりしなくても、スマホ・タブレット・PCですぐ作成でき、できたら✓、印刷・PDF保存もできます。</p>
@@ -280,5 +279,24 @@ if(isIOS&&isSafari){setTimeout(function(){build('共有ボタン → 「ホー�
 })();
 </script>
 <!-- pwa:end -->
+<script>
+/* アフィリエイトのクリック計測。失敗してもリンク遷移は妨げない。 */
+(function(){
+  document.addEventListener('click', function(e){
+    try{
+      var a = e.target && e.target.closest && e.target.closest('a[data-aff-click]');
+      if(!a) return;
+      var slot = a.closest('.aff');
+      if(typeof gtag === 'function'){
+        gtag('event','affiliate_click',{
+          program: a.getAttribute('data-aff-click') || '',
+          slot: (slot && slot.getAttribute('data-aff')) || '',
+          link_url: a.href || ''
+        });
+      }
+    }catch(err){/* 計測の失敗は無視する */}
+  }, true);
+})();
+</script>
 </body>
 </html>
