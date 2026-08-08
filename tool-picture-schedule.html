@@ -140,6 +140,8 @@
   <div class="empty" id="empty">上のカードをタップして、よていを作ってね。</div>
   <div class="btnrow noprint">
     <button class="btn primary" id="printBtn">印刷・PDF保存</button>
+    <button class="btn ghost" id="shareBtn">URLで渡す</button>
+    <button class="btn ghost" id="pngBtn">画像で保存</button>
     <button class="btn ghost" id="clearBtn">ぜんぶ消す</button>
   </div>
   <div class="status noprint" id="status"></div>
@@ -147,6 +149,10 @@
 
 
   <div class="aff" data-aff="mitooshi/tool-picture-schedule"><span class="aff-tag">PR</span><p class="aff-text">印刷して使えるカード教材やラミネート用品。</p><p class="aff-links"><a href="https://www.amazon.co.jp/s?k=%E7%B5%B5%E3%82%AB%E3%83%BC%E3%83%89%20%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%20%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" target="_blank" rel="noopener sponsored nofollow" data-aff-click="amazon_search">絵カード・コミュニケーションカード教材 を見る（Amazon）</a></p></div>
+    <h2>作ったよていを、そのまま渡せます</h2>
+    <p><b>「URLで渡す」を押すと、いま画面にある予定がそのままURLになります。</b>LINEやメールで送れば、相手の端末で同じ予定が開きます。園や学校で作ったものを家庭へ、家庭で作ったものを支援者へ——同じものを見ながら話せます。</p>
+    <p>このとき<b>データはどこにも送信されていません。</b>予定の中身はURLの「#」より後ろに入っていて、その部分はブラウザからサーバーへ送られない決まりになっています。つまり、かわたれ studio を含め誰のサーバーにも予定は届きません。URLを渡した相手だけが読めます。</p>
+    <p>逆に言えば、<b>URLを知っている人は誰でも開けます。</b>お子さんの名前や細かい事情を書き込んだものを、共有の場に貼らないでください。渡す相手を選べる手段（個別のメッセージなど）で送るのが安全です。</p>
     <h2>絵カードスケジュールとは</h2>
     <p>絵カードスケジュール（視覚スケジュール）は、「次に何をするか」を絵と文字で順番に示した予定表です。時計や文章だけでは見通しが持ちにくいお子さんでも、絵カードで並べると1日の流れが直感的に分かり、活動の切り替えがスムーズになります。自閉スペクトラム（ASD）やADHDのお子さんの支援で広く使われています。</p>
     <p>この「絵スケジュール」は、絵カードスケジュールを<b>ブラウザ上でその場で作れる無料ツール</b>です。カードを印刷したりアプリを入れたりしなくても、スマホ・タブレット・PCですぐ作成でき、できたら✓、印刷・PDF保存もできます。</p>
@@ -196,7 +202,64 @@
   var items=[], pickEmo='⭐';
   var slist=document.getElementById('slist'), empty=document.getElementById('empty'), status=document.getElementById('status');
   function say(m){status.textContent=m||'';}
+  // ── URL共有 ────────────────────────────────────────────────
+  // 状態をURLのフラグメント（#以降）に載せる。フラグメントはHTTPリクエストに
+  // 含まれないので、サーバーにはデータが渡らない。このサイトが掲げている
+  // 「端末内で完結・データを送信しない」を守ったまま共有できる。
+  //
+  // btoa は Latin-1 しか扱えず日本語で例外になるため、一度 UTF-8 のバイト列に
+  // してから Base64 にする。復元はその逆。
+  function encodeState(obj){
+    try{
+      var json=JSON.stringify(obj);
+      var bytes=new TextEncoder().encode(json);
+      var bin=''; for(var i=0;i<bytes.length;i++){bin+=String.fromCharCode(bytes[i]);}
+      return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }catch(e){return '';}
+  }
+  function decodeState(str){
+    try{
+      var b64=str.replace(/-/g,'+').replace(/_/g,'/');
+      while(b64.length%4){b64+='=';}
+      var bin=atob(b64);
+      var bytes=new Uint8Array(bin.length);
+      for(var i=0;i<bin.length;i++){bytes[i]=bin.charCodeAt(i);}
+      return JSON.parse(new TextDecoder().decode(bytes));
+    }catch(e){return null;}
+  }
   function save(){try{localStorage.setItem('mitooshi_sched',JSON.stringify({t:document.getElementById('stitle').value,items:items}));}catch(e){}}
+  // 共有URLを作ってクリップボードに入れる。navigator.share がある端末では
+  // 共有シートを出す（スマホでLINEに渡す動線がこれで一気に短くなる）。
+  function buildShareUrl(){
+    var st={t:document.getElementById('stitle').value,items:items};
+    return location.origin+location.pathname+'#s='+encodeState(st);
+  }
+  function onShare(){
+    var url=buildShareUrl();
+    var status=document.getElementById('status');
+    if(navigator.share){
+      navigator.share({title:'きょうのよてい',url:url}).catch(function(){});
+      return;
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){
+        status.textContent='URLをコピーしました。LINEやメールに貼って渡せます。';
+      }).catch(function(){
+        status.textContent='コピーできませんでした。アドレスバーのURLをそのまま渡してください。';
+      });
+    }else{
+      status.textContent='この端末では自動コピーできません。アドレスバーのURLをそのまま渡してください。';
+    }
+  }
+  // URLに #s= が付いていたら、そこから復元する。localStorage より優先する。
+  function loadFromHash(){
+    if(location.hash.indexOf('#s=')!==0)return false;
+    var d=decodeState(location.hash.slice(3));
+    if(!d||!d.items)return false;
+    items=d.items;
+    if(d.t)document.getElementById('stitle').value=d.t;
+    return true;
+  }
   function load(){try{var d=JSON.parse(localStorage.getItem('mitooshi_sched')||'null');if(d&&d.items){items=d.items;if(d.t)document.getElementById('stitle').value=d.t;}}catch(e){}}
   (function(){var box=document.getElementById('presets');PRE.forEach(function(p){var b=document.createElement('button');b.type='button';b.className='pchip';b.textContent=p[0]+' '+p[1];b.addEventListener('click',function(){add(p[0],p[1],'');});box.appendChild(b);});})();
   (function(){var box=document.getElementById('emopick');EMO.forEach(function(e,i){var b=document.createElement('button');b.type='button';b.className='emobtn'+(i===0?' on':'');b.textContent=e;b.addEventListener('click',function(){pickEmo=e;box.querySelectorAll('.emobtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');});box.appendChild(b);});})();
@@ -219,7 +282,9 @@
   document.getElementById('printBtn').addEventListener('click',function(){window.print();});
   document.getElementById('clearBtn').addEventListener('click',function(){if(!items.length)return;if(confirm('ぜんぶ消しますか？')){items=[];render();save();}});
   document.getElementById('stitle').addEventListener('input',save);
-  load();render();
+  if(!loadFromHash()){load();}
+  document.getElementById('shareBtn').addEventListener('click',onShare);
+  render();
   window.__tool={add:add,items:function(){return items;},count:function(){return items.length;},toggle:function(i){items[i].done=!items[i].done;render();},done:function(i){return items[i].done;},clearAll:function(){items=[];render();}};
 })();</script>
 <!-- pwa:start -->
