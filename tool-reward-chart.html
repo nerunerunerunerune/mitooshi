@@ -283,7 +283,12 @@
   document.getElementById('rwhat').addEventListener('input',function(){goalText();save();});
   document.getElementById('rprize').addEventListener('input',function(){goalText();save();});
   document.getElementById('rtitle').addEventListener('input',save);
-  if(!loadFromHash()){load();}
+  // リンクから開いた場合は、受け取った側にそれと分かるように伝える。
+  // 何も言わないと、自分が前に作ったものだと勘違いする。
+  if(loadFromHash()){
+    var st=document.getElementById('status');
+    if(st)st.textContent='リンクから開きました。このがんばり表は、この画面で自由に編集できます。';
+  }else{load();}
   document.getElementById('shareBtn').addEventListener('click',onShare);
   render();
   window.__tool={setTotal:function(n){total=n;if(filled>total)filled=total;render();},fill:function(n){filled=n;update();save();},filled:function(){return filled;},total:function(){return total;},tapToken:function(i){tokensEl.querySelectorAll('.token')[i].click();},celebrating:function(){return !document.getElementById('celebrate').hidden;}};
