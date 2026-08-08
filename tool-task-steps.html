@@ -130,7 +130,7 @@
   <div class="steplist" id="steplist"></div>
   <div class="empty" id="empty">テンプレを選ぶか、手順を追加してね。</div>
   <div class="celebrate" id="celebrate" hidden>ぜんぶ できたね！ すごい🎉</div>
-  <div class="btnrow noprint"><button class="btn primary" id="printBtn">印刷・PDF保存</button><button class="btn ghost" id="shareBtn">URLで渡す</button><button class="btn ghost" id="clearBtn">ぜんぶ消す</button></div>
+  <div class="btnrow noprint"><button class="btn primary" id="printBtn">印刷・PDF保存</button><button class="btn ghost" id="shareBtn">URLで渡す</button><button class="btn ghost" id="pngBtn">画像で保存</button><button class="btn ghost" id="clearBtn">ぜんぶ消す</button></div>
   <div class="status noprint" id="status"></div>
 </div>
 
@@ -237,6 +237,48 @@
       status.textContent='この端末では自動コピーできません。アドレスバーのURLをそのまま渡してください。';
     }
   }
+  // 画像で保存。外部ライブラリを使わずに済ませるため、SVGのforeignObjectに
+  // HTMLを埋めてcanvasに描く。Safariはこれが不安定なので、失敗したら
+  // 印刷を案内する（印刷からPDF保存すれば同じ目的は果たせる）。
+  function exportPng(){
+    var status=document.getElementById('status');
+    // 一覧要素のIDはツールで違う。絵カードは slist、手順表は steplist。
+    var node=document.getElementById('slist')||document.getElementById('steplist');
+    if(!node||!node.children.length){status.textContent='先に中身を作ってください。';return;}
+    try{
+      var rect=node.getBoundingClientRect();
+      var w=Math.ceil(rect.width),h=Math.ceil(rect.height);
+      var css='';
+      // ページのstyleタグをそのまま持ち込む（外部CSSは使っていない）
+      Array.prototype.forEach.call(document.querySelectorAll('style'),function(s){css+=s.textContent;});
+      var html='<div xmlns="http://www.w3.org/1999/xhtml" style="background:#fff;padding:16px">'
+        +'<style>'+css+'</style>'+node.outerHTML+'</div>';
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+(w+32)+'" height="'+(h+32)+'">'
+        +'<foreignObject width="100%" height="100%">'+html+'</foreignObject></svg>';
+      var img=new Image();
+      img.onload=function(){
+        var c=document.createElement('canvas');
+        c.width=(w+32)*2; c.height=(h+32)*2;
+        var ctx=c.getContext('2d');
+        ctx.scale(2,2);
+        ctx.fillStyle='#fff'; ctx.fillRect(0,0,w+32,h+32);
+        ctx.drawImage(img,0,0);
+        c.toBlob(function(blob){
+          if(!blob){status.textContent='画像にできませんでした。「印刷・PDF保存」をお使いください。';return;}
+          var a=document.createElement('a');
+          a.href=URL.createObjectURL(blob);
+          a.download='mitooshi.png';
+          a.click();
+          setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+          status.textContent='画像を保存しました。';
+        });
+      };
+      img.onerror=function(){status.textContent='この端末では画像にできませんでした。「印刷・PDF保存」をお使いください。';};
+      img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+    }catch(e){
+      status.textContent='この端末では画像にできませんでした。「印刷・PDF保存」をお使いください。';
+    }
+  }
   // URLに #s= が付いていたら、そこから復元する。localStorage より優先する。
   function loadFromHash(){
     if(location.hash.indexOf('#s=')!==0)return false;
@@ -273,6 +315,7 @@
   document.getElementById('ttitle').addEventListener('input',save);
   if(!loadFromHash()){load();}
   document.getElementById('shareBtn').addEventListener('click',onShare);
+  document.getElementById('pngBtn').addEventListener('click',exportPng);
   render();
   window.__tool={loadTemplate:function(idx){var tp=TMPL[idx]||TMPL[0];document.getElementById('ttitle').value=tp.title;items=tp.steps.map(function(s){return {e:s[0],t:s[1],done:false};});render();},add:function(e,t){items.push({e:e,t:t,done:false});render();},count:function(){return items.length;},next:function(){return nextIdx();},complete:function(i){items[i].done=true;render();},celebrating:function(){return !cel.hidden;}};
 })();</script>
