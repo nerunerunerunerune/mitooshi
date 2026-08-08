@@ -130,12 +130,16 @@
   <div class="steplist" id="steplist"></div>
   <div class="empty" id="empty">テンプレを選ぶか、手順を追加してね。</div>
   <div class="celebrate" id="celebrate" hidden>ぜんぶ できたね！ すごい🎉</div>
-  <div class="btnrow noprint"><button class="btn primary" id="printBtn">印刷・PDF保存</button><button class="btn ghost" id="clearBtn">ぜんぶ消す</button></div>
+  <div class="btnrow noprint"><button class="btn primary" id="printBtn">印刷・PDF保存</button><button class="btn ghost" id="shareBtn">URLで渡す</button><button class="btn ghost" id="clearBtn">ぜんぶ消す</button></div>
   <div class="status noprint" id="status"></div>
 </div>
 
 
   <section class="seo">
+    <h2>手順をそのまま渡せます</h2>
+    <p><b>「URLで渡す」を押すと、いま画面にある手順がそのままURLになります。</b>LINEやメールで送れば、相手の端末で同じ予定が開きます。園や学校で作ったものを家庭へ、家庭で作ったものを支援者へ——同じものを見ながら話せます。</p>
+    <p>このとき<b>データはどこにも送信されていません。</b>予定の中身はURLの「#」より後ろに入っていて、その部分はブラウザからサーバーへ送られない決まりになっています。つまり、かわたれ studio を含め誰のサーバーにも予定は届きません。URLを渡した相手だけが読めます。</p>
+    <p>逆に言えば、<b>URLを知っている人は誰でも開けます。</b>お子さんの名前や細かい事情を書き込んだものを、共有の場に貼らないでください。渡す相手を選べる手段（個別のメッセージなど）で送るのが安全です。</p>
     <h2>使い方（3ステップ）</h2>
     <div class="howto"><div class="st"><div class="n">1</div><b>テンプレを選ぶ</b><p>歯みがき・手あらいなどをタップすると手順が入ります。</p></div><div class="st"><div class="n">2</div><b>つぎを見る</b><p>いま取り組む手順が「つぎ」と強調されます。</p></div><div class="st"><div class="n">3</div><b>できたら✓</b><p>一つずつ進み、全部できたらお祝い。印刷もできます。</p></div></div>
   
@@ -184,7 +188,64 @@
   var items=[], pickEmo='🪥';
   var slist=document.getElementById('steplist'), empty=document.getElementById('empty'), cel=document.getElementById('celebrate'), status=document.getElementById('status');
   function say(m){status.textContent=m||'';}
+  // ── URL共有 ────────────────────────────────────────────────
+  // 状態をURLのフラグメント（#以降）に載せる。フラグメントはHTTPリクエストに
+  // 含まれないので、サーバーにはデータが渡らない。このサイトが掲げている
+  // 「端末内で完結・データを送信しない」を守ったまま共有できる。
+  //
+  // btoa は Latin-1 しか扱えず日本語で例外になるため、一度 UTF-8 のバイト列に
+  // してから Base64 にする。復元はその逆。
+  function encodeState(obj){
+    try{
+      var json=JSON.stringify(obj);
+      var bytes=new TextEncoder().encode(json);
+      var bin=''; for(var i=0;i<bytes.length;i++){bin+=String.fromCharCode(bytes[i]);}
+      return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }catch(e){return '';}
+  }
+  function decodeState(str){
+    try{
+      var b64=str.replace(/-/g,'+').replace(/_/g,'/');
+      while(b64.length%4){b64+='=';}
+      var bin=atob(b64);
+      var bytes=new Uint8Array(bin.length);
+      for(var i=0;i<bin.length;i++){bytes[i]=bin.charCodeAt(i);}
+      return JSON.parse(new TextDecoder().decode(bytes));
+    }catch(e){return null;}
+  }
   function save(){try{localStorage.setItem('mitooshi_steps',JSON.stringify({t:document.getElementById('ttitle').value,items:items}));}catch(e){}}
+  // 共有URLを作ってクリップボードに入れる。navigator.share がある端末では
+  // 共有シートを出す（スマホでLINEに渡す動線がこれで一気に短くなる）。
+  function buildShareUrl(){
+    var st={t:document.getElementById('ttitle').value,items:items};
+    return location.origin+location.pathname+'#s='+encodeState(st);
+  }
+  function onShare(){
+    var url=buildShareUrl();
+    var status=document.getElementById('status');
+    if(navigator.share){
+      navigator.share({title:'やること',url:url}).catch(function(){});
+      return;
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){
+        status.textContent='URLをコピーしました。LINEやメールに貼って渡せます。';
+      }).catch(function(){
+        status.textContent='コピーできませんでした。アドレスバーのURLをそのまま渡してください。';
+      });
+    }else{
+      status.textContent='この端末では自動コピーできません。アドレスバーのURLをそのまま渡してください。';
+    }
+  }
+  // URLに #s= が付いていたら、そこから復元する。localStorage より優先する。
+  function loadFromHash(){
+    if(location.hash.indexOf('#s=')!==0)return false;
+    var d=decodeState(location.hash.slice(3));
+    if(!d||!d.items)return false;
+    items=d.items;
+    if(d.t)document.getElementById('ttitle').value=d.t;
+    return true;
+  }
   function load(){try{var d=JSON.parse(localStorage.getItem('mitooshi_steps')||'null');if(d&&d.items){items=d.items;if(d.t)document.getElementById('ttitle').value=d.t;}}catch(e){}}
   (function(){var box=document.getElementById('tmpl');TMPL.forEach(function(tp){var b=document.createElement('button');b.type='button';b.textContent=tp.label;b.addEventListener('click',function(){document.getElementById('ttitle').value=tp.title;items=tp.steps.map(function(s){return {e:s[0],t:s[1],done:false};});render();save();});box.appendChild(b);});})();
   (function(){var box=document.getElementById('emopick');EMO.forEach(function(e,i){var b=document.createElement('button');b.type='button';b.className='emobtn'+(i===0?' on':'');b.textContent=e;b.addEventListener('click',function(){pickEmo=e;box.querySelectorAll('.emobtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');});box.appendChild(b);});})();
@@ -210,7 +271,9 @@
   document.getElementById('printBtn').addEventListener('click',function(){window.print();});
   document.getElementById('clearBtn').addEventListener('click',function(){if(!items.length)return;if(confirm('ぜんぶ消しますか？')){items=[];render();save();}});
   document.getElementById('ttitle').addEventListener('input',save);
-  load();render();
+  if(!loadFromHash()){load();}
+  document.getElementById('shareBtn').addEventListener('click',onShare);
+  render();
   window.__tool={loadTemplate:function(idx){var tp=TMPL[idx]||TMPL[0];document.getElementById('ttitle').value=tp.title;items=tp.steps.map(function(s){return {e:s[0],t:s[1],done:false};});render();},add:function(e,t){items.push({e:e,t:t,done:false});render();},count:function(){return items.length;},next:function(){return nextIdx();},complete:function(i){items[i].done=true;render();},celebrating:function(){return !cel.hidden;}};
 })();</script>
 <!-- pwa:start -->

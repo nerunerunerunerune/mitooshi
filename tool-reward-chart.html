@@ -131,6 +131,7 @@
   <div class="celebrate" id="celebrate" hidden>ぜんぶ あつまったね！ おめでとう🎉</div>
   <div class="btnrow noprint">
     <button class="btn primary" id="printBtn">印刷・PDF保存</button>
+    <button class="btn ghost" id="shareBtn">URLで渡す</button>
     <button class="btn ghost" id="resetBtn">リセット</button>
   </div>
   <div class="status noprint" id="status"></div>
@@ -138,6 +139,10 @@
 
 
   <div class="aff" data-aff="mitooshi/tool-reward-chart"><span class="aff-tag">PR</span><p class="aff-text">紙のごほうび表やシール台紙をお探しの方へ。</p><p class="aff-links"><a href="https://www.amazon.co.jp/s?k=%E3%81%94%E3%81%BB%E3%81%86%E3%81%B3%E8%A1%A8%20%E3%82%B7%E3%83%BC%E3%83%AB%20%E5%8F%B0%E7%B4%99" target="_blank" rel="noopener sponsored nofollow" data-aff-click="amazon_search">ごほうび表・シール台紙 を見る（Amazon）</a></p></div>
+    <h2>がんばり表は、渡してからが本番</h2>
+    <p><b>「URLで渡す」を押すと、いまのがんばり表がそのままURLになります。</b>LINEやメールで送れば、相手の端末で同じ予定が開きます。園や学校で作ったものを家庭へ、家庭で作ったものを支援者へ——同じものを見ながら話せます。</p>
+    <p>このとき<b>データはどこにも送信されていません。</b>予定の中身はURLの「#」より後ろに入っていて、その部分はブラウザからサーバーへ送られない決まりになっています。つまり、かわたれ studio を含め誰のサーバーにも予定は届きません。URLを渡した相手だけが読めます。</p>
+    <p>逆に言えば、<b>URLを知っている人は誰でも開けます。</b>お子さんの名前や細かい事情を書き込んだものを、共有の場に貼らないでください。渡す相手を選べる手段（個別のメッセージなど）で送るのが安全です。</p>
     <h2>トークンエコノミーとは</h2>
     <p>トークンエコノミー（token economy）は、望ましい行動ができたときに「トークン（しるし・ポイント・シール）」を渡し、決めた数がたまったら「ごほうび」と交換する、行動を後押しする方法です。応用行動分析（ABA）でも使われ、家庭・保育・学校・放課後等デイなど幅広い場で活用されています。「あと何個でごほうび」が目に見えることで見通しが立ち、やる気と自信につながります。</p>
     <p>「がんばり表」は、このトークンエコノミーを<b>画面上でタップして貯めるデジタル版</b>です。印刷して壁に貼る紙のごほうび表と違い、スマホやタブレットでその場ですぐ始められ、数や目標も自由に変えられます（もちろん印刷・PDF保存も可能）。</p>
@@ -188,7 +193,72 @@
   var mark='⭐', total=10, filled=0;
   var tokensEl=document.getElementById('tokens'), prog=document.getElementById('progress'), cel=document.getElementById('celebrate'), status=document.getElementById('status');
   function say(m){status.textContent=m||'';}
+  // ── URL共有 ────────────────────────────────────────────────
+  // 状態をURLのフラグメント（#以降）に載せる。フラグメントはHTTPリクエストに
+  // 含まれないので、サーバーにはデータが渡らない。このサイトが掲げている
+  // 「端末内で完結・データを送信しない」を守ったまま共有できる。
+  //
+  // btoa は Latin-1 しか扱えず日本語で例外になるため、一度 UTF-8 のバイト列に
+  // してから Base64 にする。復元はその逆。
+  function encodeState(obj){
+    try{
+      var json=JSON.stringify(obj);
+      var bytes=new TextEncoder().encode(json);
+      var bin=''; for(var i=0;i<bytes.length;i++){bin+=String.fromCharCode(bytes[i]);}
+      return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }catch(e){return '';}
+  }
+  function decodeState(str){
+    try{
+      var b64=str.replace(/-/g,'+').replace(/_/g,'/');
+      while(b64.length%4){b64+='=';}
+      var bin=atob(b64);
+      var bytes=new Uint8Array(bin.length);
+      for(var i=0;i<bin.length;i++){bytes[i]=bin.charCodeAt(i);}
+      return JSON.parse(new TextDecoder().decode(bytes));
+    }catch(e){return null;}
+  }
   function save(){try{localStorage.setItem('mitooshi_reward',JSON.stringify({t:document.getElementById('rtitle').value,what:document.getElementById('rwhat').value,prize:document.getElementById('rprize').value,mark:mark,total:total,filled:filled}));}catch(e){}}
+  // 共有URLを作ってクリップボードに入れる。navigator.share がある端末では
+  // 共有シートを出す（スマホでLINEに渡す動線がこれで一気に短くなる）。
+  function buildShareUrl(){
+    var st={
+      t:document.getElementById('rtitle').value,
+      what:document.getElementById('rwhat').value,
+      prize:document.getElementById('rprize').value,
+      mark:mark,total:total,filled:filled
+    };
+    return location.origin+location.pathname+'#s='+encodeState(st);
+  }
+  function onShare(){
+    var url=buildShareUrl();
+    var status=document.getElementById('status');
+    if(navigator.share){
+      navigator.share({title:'がんばりカード',url:url}).catch(function(){});
+      return;
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){
+        status.textContent='URLをコピーしました。LINEやメールに貼って渡せます。';
+      }).catch(function(){
+        status.textContent='コピーできませんでした。アドレスバーのURLをそのまま渡してください。';
+      });
+    }else{
+      status.textContent='この端末では自動コピーできません。アドレスバーのURLをそのまま渡してください。';
+    }
+  }
+  // URLに #s= が付いていたら、そこから復元する。localStorage より優先する。
+  function loadFromHash(){
+    if(location.hash.indexOf('#s=')!==0)return false;
+    var d=decodeState(location.hash.slice(3));
+    if(!d)return false;
+    document.getElementById('rtitle').value=d.t||'がんばりカード';
+    document.getElementById('rwhat').value=d.what||'';
+    document.getElementById('rprize').value=d.prize||'';
+    document.getElementById('rcount').value=d.total||10;
+    mark=d.mark||'⭐'; total=d.total||10; filled=d.filled||0;
+    return true;
+  }
   function load(){try{var d=JSON.parse(localStorage.getItem('mitooshi_reward')||'null');if(d){document.getElementById('rtitle').value=d.t||'がんばりカード';document.getElementById('rwhat').value=d.what||'';document.getElementById('rprize').value=d.prize||'';document.getElementById('rcount').value=d.total||10;mark=d.mark||'⭐';total=d.total||10;filled=d.filled||0;}}catch(e){}}
   (function(){var box=document.getElementById('markpick');MARKS.forEach(function(m,i){var b=document.createElement('button');b.type='button';b.className='emobtn'+(i===0?' on':'');b.textContent=m;b.addEventListener('click',function(){mark=m;box.querySelectorAll('.emobtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render();save();});box.appendChild(b);});})();
   function goalText(){var what=document.getElementById('rwhat').value.trim(),prize=document.getElementById('rprize').value.trim(),s='';if(what)s+='「'+what+'」をがんばろう';if(prize)s+=(s?'　／　':'')+'ごほうび：'+prize;document.getElementById('goalShow').textContent=s;}
@@ -204,7 +274,9 @@
   document.getElementById('rwhat').addEventListener('input',function(){goalText();save();});
   document.getElementById('rprize').addEventListener('input',function(){goalText();save();});
   document.getElementById('rtitle').addEventListener('input',save);
-  load();render();
+  if(!loadFromHash()){load();}
+  document.getElementById('shareBtn').addEventListener('click',onShare);
+  render();
   window.__tool={setTotal:function(n){total=n;if(filled>total)filled=total;render();},fill:function(n){filled=n;update();save();},filled:function(){return filled;},total:function(){return total;},tapToken:function(i){tokensEl.querySelectorAll('.token')[i].click();},celebrating:function(){return !document.getElementById('celebrate').hidden;}};
 })();</script>
 <!-- pwa:start -->
