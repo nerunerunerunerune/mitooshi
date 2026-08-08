@@ -238,6 +238,14 @@
   function onShare(){
     var url=buildShareUrl();
     var status=document.getElementById('status');
+    // URLが長くなりすぎると、送信先のアプリやブラウザで途中で切られることがある。
+    // 切れたURLは開いても何も復元されず、しかも渡した側には分からない。
+    // 主要ブラウザの上限は2,000文字前後なので、手前で気づけるようにする。
+    if(url.length>1800){
+      status.textContent='項目が多すぎて、URLでは渡せません（'+url.length+'文字）。'
+        +'項目を減らすか、「画像で保存」か「印刷・PDF保存」でお渡しください。';
+      return;
+    }
     if(navigator.share){
       navigator.share({title:'きょうのよてい',url:url}).catch(function(){});
       return;
