@@ -251,6 +251,11 @@
       var css='';
       // ページのstyleタグをそのまま持ち込む（外部CSSは使っていない）
       Array.prototype.forEach.call(document.querySelectorAll('style'),function(s){css+=s.textContent;});
+      // 操作用のボタン（できたの✓、並べ替えの▲▼×）は画像に要らない。
+      // 人に渡す完成品なので、印刷時と同じものを隠す。
+      // ページの @media print はここでは効かない（画面描画の文脈で処理されるため）
+      // ので、同じ指定を通常のルールとして足す。
+      css+='.scard .chk,.scard .mv,.stp .chk,.stp .mv,.noprint{display:none !important;}';
       var html='<div xmlns="http://www.w3.org/1999/xhtml" style="background:#fff;padding:16px">'
         +'<style>'+css+'</style>'+node.outerHTML+'</div>';
       var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+(w+32)+'" height="'+(h+32)+'">'
