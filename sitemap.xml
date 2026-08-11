@@ -43,6 +43,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://mitooshi.kawatare.studio/for-supporters</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://mitooshi.kawatare.studio/privacy</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>yearly</changefreq>
