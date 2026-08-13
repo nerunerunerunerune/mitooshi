@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://mitooshi.kawatare.studio/ogp.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"やることステップ｜みとおし","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"1つの活動を小さな手順に分けて“つぎ”を示す無料ツール。歯みがき・手あらい・おきがえなどの定番テンプレ付き。できたらチェックで一つずつ進めます。印刷・PDF・端末内保存。登録不要・送信なし。"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"やることステップの使い方","step":[{"@type":"HowToStep","name":"テンプレを選ぶ","text":"歯みがき・手あらいなどをタップすると手順が入ります。"},{"@type":"HowToStep","name":"つぎを見る","text":"いま取り組む手順が「つぎ」と強調されます。"},{"@type":"HowToStep","name":"できたら✓","text":"一つずつ進み、全部できたらお祝い。印刷もできます。"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"タスク分解（手順の見える化）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"1つの活動を「コップに水→歯ブラシ→…」のように小さな手順に分けて示すことです。次に何をするかが明確になり、見通しを持って最後まで取り組みやすくなります。"}},{"@type":"Question","name":"自分で手順を作れますか？","acceptedAnswer":{"@type":"Answer","text":"はい。テンプレを使わず、マークと文でオリジナルの手順を追加・並べ替えできます。"}},{"@type":"Question","name":"内容は保存されますか？","acceptedAnswer":{"@type":"Answer","text":"同じ端末の同じブラウザなら、次回も続きから使えます（端末内保存・送信なし）。"}},{"@type":"Question","name":"印刷して使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「印刷・PDF保存」できれいに出力でき、壁に貼って使えます。"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"タスク分解（手順の見える化）とは何ですか？","acceptedAnswer":{"@type":"Answer","text":"1つの活動を「コップに水→歯ブラシ→…」のように小さな手順に分けて示すことです。次に何をするかが明確になり、見通しを持って最後まで取り組みやすくなります。"}},{"@type":"Question","name":"自分で手順を作れますか？","acceptedAnswer":{"@type":"Answer","text":"はい。テンプレを使わず、マークと文でオリジナルの手順を追加・並べ替えできます。"}},{"@type":"Question","name":"内容は保存されますか？","acceptedAnswer":{"@type":"Answer","text":"同じ端末の同じブラウザなら、次回も続きから使えます（端末内保存・送信なし）。"}},{"@type":"Question","name":"印刷して使えますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「印刷・PDF保存」できれいに出力でき、壁に貼って使えます。"}},{"@type":"Question","name":"カードの大きさは変えられますか？","acceptedAnswer":{"@type":"Answer","text":"変えられます。一覧の上にある「カードの大きさ」で小・中・大を選べます。選んだ大きさは、印刷にも「画像で保存」にもURLで渡した先にもそのまま反映されます。"}},{"@type":"Question","name":"使いたい絵がないときはどうすればいいですか？","acceptedAnswer":{"@type":"Answer","text":"絵の一覧の隣にある入力欄に、好きな絵文字を直接入力・貼り付けできます。スマホやパソコンの絵文字キーボードがそのまま使えます。"}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"みとおし","item":"https://mitooshi.kawatare.studio/"},{"@type":"ListItem","position":2,"name":"やることステップ","item":"https://mitooshi.kawatare.studio/tool-task-steps"}]}</script>
 <style>
   :root{--bg:#f6f7f6;--card:#ffffff;--ink:#242a28;--ink-2:#5d6763;--muted:#9aa4a0;--line:#e6ebe8;
@@ -96,6 +96,31 @@
   .stp .chk{flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--brand);background:var(--card);color:var(--brand);font-size:20px;font-weight:800;cursor:pointer;}
   .stp.done .chk{background:var(--brand);color:#fff;}
   .stp .mv{display:flex;flex-direction:column;gap:3px;} .stp .mv button{width:26px;height:20px;border:1px solid var(--line);background:var(--bg);border-radius:6px;font-size:11px;cursor:pointer;color:var(--ink-2);}
+
+  /* カードの大きさ（小・中・大）。中がこれまでどおりの見た目。
+     クラスは steplist に付けるので、印刷にも「画像で保存」にもそのまま効く */
+  .sizeseg{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:10px 0 0;}
+  .sizeseg .szlab{font-size:12.5px;font-weight:800;color:var(--ink-2);}
+  .szbtn{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:7px 15px;font-size:13.5px;font-weight:800;cursor:pointer;color:var(--ink);font-family:inherit;}
+  .szbtn.on{border-color:var(--brand);color:var(--brand);box-shadow:0 0 0 2px var(--brand);}
+  .steplist.sz-s{gap:6px;}
+  .steplist.sz-s .stp{padding:7px 10px;gap:8px;border-radius:12px;}
+  .steplist.sz-s .stp .emo{font-size:21px;}
+  .steplist.sz-s .stp .tx{font-size:14px;}
+  .steplist.sz-s .stp .num{width:24px;height:24px;font-size:12px;}
+  .steplist.sz-s .stp .chk{width:31px;height:31px;font-size:15px;}
+  .steplist.sz-l{gap:13px;}
+  .steplist.sz-l .stp{padding:17px 16px;gap:14px;border-radius:20px;}
+  .steplist.sz-l .stp .emo{font-size:50px;}
+  .steplist.sz-l .stp .tx{font-size:24px;}
+  .steplist.sz-l .stp .num{width:38px;height:38px;font-size:19px;}
+  .steplist.sz-l .stp .chk{width:52px;height:52px;font-size:25px;}
+
+  /* 絵えらび：カテゴリの切り替えと、好きな絵文字の直接入力 */
+  .emocats{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px;}
+  .ecat{border:1px solid var(--line);background:var(--bg);border-radius:16px;padding:6px 12px;font-size:12.5px;font-weight:800;cursor:pointer;color:var(--ink-2);font-family:inherit;}
+  .ecat.on{border-color:var(--brand);color:var(--brand);}
+  .emofree{width:74px;padding:9px 6px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--ink);font-size:20px;text-align:center;font-family:inherit;}
   .nexttag{font-size:12px;font-weight:800;color:var(--brand);}
   .celebrate{text-align:center;font-size:22px;font-weight:800;color:var(--accent);margin:8px 0;}
   .empty{text-align:center;color:var(--muted);font-size:14px;padding:16px;}
@@ -116,17 +141,19 @@
     <div class="free">🌱 登録不要・無料</div>
   </header>
 
-  <div class="answer">「歯みがき」などの活動を<b>小さな手順に分け</b>、いま取り組むところを「つぎ」と強調します。できたら✓で一つずつ進み、迷わず最後まで。定番テンプレをタップするだけでも作れます。</div>
+  <div class="answer">「歯みがき」などの活動を<b>小さな手順に分け</b>、いま取り組むところを「つぎ」と強調します。できたら✓で一つずつ進み、迷わず最後まで。定番テンプレをタップするだけでも作れます。絵は約100種類から選べて、<b>好きな絵文字もそのまま使えます</b>。カードの大きさは小・中・大の3段階です。</div>
 
   <div class="panel">
   <input class="ttitle" id="ttitle" maxlength="24" value="やること">
   <label class="olabel noprint">定番テンプレ（タップで手順が入ります）</label>
   <div class="tmpl noprint" id="tmpl"></div>
   <div class="noprint">
-    <label class="olabel">手順を追加（マークをえらんで入力）</label>
+    <label class="olabel">手順を追加（マークをえらぶか、すきな絵文字を入れて入力）</label>
+    <div class="emocats" id="emocats"></div>
     <div class="emopick" id="emopick"></div>
-    <div class="addrow"><input class="sinput2" id="ntext" maxlength="20" placeholder="てじゅん（例：コップに水）"><button class="btn primary" id="addBtn">追加</button></div>
+    <div class="addrow"><input class="emofree" id="nemo" maxlength="8" placeholder="🙂" title="すきな絵文字をここに入力・貼り付けできます"><input class="sinput2" id="ntext" maxlength="20" placeholder="てじゅん（例：コップに水）"><button class="btn primary" id="addBtn">追加</button></div>
   </div>
+  <div class="sizeseg noprint"><span class="szlab">カードの大きさ</span><button type="button" class="szbtn" data-sz="s">小</button><button type="button" class="szbtn on" data-sz="m">中</button><button type="button" class="szbtn" data-sz="l">大</button></div>
   <div class="steplist" id="steplist"></div>
   <div class="empty" id="empty">テンプレを選ぶか、手順を追加してね。</div>
   <div class="celebrate" id="celebrate" hidden>ぜんぶ できたね！ すごい🎉</div>
@@ -167,7 +194,7 @@
   </div>
 
   <h2>よくある質問</h2>
-    <div class="faq"><details open><summary>タスク分解（手順の見える化）とは何ですか？</summary><p>1つの活動を「コップに水→歯ブラシ→…」のように小さな手順に分けて示すことです。次に何をするかが明確になり、見通しを持って最後まで取り組みやすくなります。</p></details><details><summary>自分で手順を作れますか？</summary><p>はい。テンプレを使わず、マークと文でオリジナルの手順を追加・並べ替えできます。</p></details><details><summary>内容は保存されますか？</summary><p>同じ端末の同じブラウザなら、次回も続きから使えます（端末内保存・送信なし）。</p></details><details><summary>印刷して使えますか？</summary><p>はい。「印刷・PDF保存」できれいに出力でき、壁に貼って使えます。</p></details></div>
+    <div class="faq"><details open><summary>タスク分解（手順の見える化）とは何ですか？</summary><p>1つの活動を「コップに水→歯ブラシ→…」のように小さな手順に分けて示すことです。次に何をするかが明確になり、見通しを持って最後まで取り組みやすくなります。</p></details><details><summary>自分で手順を作れますか？</summary><p>はい。テンプレを使わず、マークと文でオリジナルの手順を追加・並べ替えできます。</p></details><details><summary>内容は保存されますか？</summary><p>同じ端末の同じブラウザなら、次回も続きから使えます（端末内保存・送信なし）。</p></details><details><summary>印刷して使えますか？</summary><p>はい。「印刷・PDF保存」できれいに出力でき、壁に貼って使えます。</p></details><details><summary>カードの大きさは変えられますか？</summary><p>変えられます。一覧の上にある「カードの大きさ」で小・中・大を選べます。選んだ大きさは、印刷にも「画像で保存」にもURLで渡した先にもそのまま反映されます。</p></details><details><summary>使いたい絵がないときはどうすればいいですか？</summary><p>絵の一覧の隣にある入力欄に、好きな絵文字を直接入力・貼り付けできます。スマホやパソコンの絵文字キーボードがそのまま使えます。</p></details></div>
     <div class="care">※ このツールは日常の見通しづくりを助ける補助ツールです。医療・診断・治療を目的とするものではありません。お子さんに合う使い方は、必要に応じて専門家（医師・支援者）にもご相談ください。</div>
     <h2>ほかのツール</h2>
     <div class="rel-grid"><a class="rel" href="tool-visual-timer">⏳ 視覚タイマー <span>のこり時間が見てわかる</span></a><a class="rel" href="tool-picture-schedule">📋 絵スケジュール <span>1日の見通しを作る</span></a><a class="rel" href="tool-feelings">😊 きもちメーター <span>気持ちを見える化</span></a><a class="rel" href="tool-reward-chart">⭐ がんばり表 <span>ごほうびまで貯める</span></a><a class="rel" href="/">🌱 ツール一覧 <span>みとおしの無料ツール</span></a></div>
@@ -184,8 +211,19 @@
     {label:'🛁 おふろ',title:'おふろ',steps:[['👕','ふくをぬぐ'],['🚿','からだをながす'],['🧴','あたま・からだをあらう'],['🛁','ゆぶねにはいる'],['🧖','タオルでふく']]},
     {label:'😴 ねるじゅんび',title:'ねるじゅんび',steps:[['🪥','歯みがき'],['🚽','トイレ'],['👚','パジャマ'],['📖','えほん'],['💡','でんきをけす']]}
   ];
-  var EMO=['🪥','🧼','💧','👕','👖','🧦','🚽','🛁','🥛','🍚','📖','🧺','🎒','😴','💡','🚪','🧴','👏','😬','🧻'];
-  var items=[], pickEmo='🪥';
+  // 絵はカテゴリ分けで約100種。足りない分は入力欄に好きな絵文字を
+  // 直接入力・貼り付けできる（スマホの絵文字キーボードがそのまま使える）。
+  var EMOCATS=[
+    ['てあらい・はみがき',['🪥','🧼','💧','🚿','🧴','😬','🧻','🪞','👏','🦷']],
+    ['きがえ・したく',['👕','👖','🧦','👟','🧢','🎒','🧥','👚']],
+    ['せいかつ',['🌅','🛏️','🚽','🛁','🧺','🧹','💡','🚪','💤','😴','🌙','⏰']],
+    ['たべる',['🥛','🍚','🍞','🍽️','🍱','🍎','🍪','🍵']],
+    ['がっこう・そと',['✏️','📖','📚','🏫','🖍️','✂️','🎨','⚽','🏃','🌳']],
+    ['ひと・きもち',['😊','🙂','😢','😌','🤝','👋','💗','⭐','🏅','🎁']],
+    ['からだ・びょういん',['🏥','💊','🩹','🧑‍⚕️','😷','🌡️','👓']],
+    ['いえ・そのほか',['📺','🎮','🧩','📱','🛒','🏠','📅','🔔','🎵','🐶','🐱','🌸']]
+  ];
+  var items=[], pickEmo='🪥', size='m';
   var slist=document.getElementById('steplist'), empty=document.getElementById('empty'), cel=document.getElementById('celebrate'), status=document.getElementById('status');
   function say(m){status.textContent=m||'';}
   // ── URL共有 ────────────────────────────────────────────────
@@ -213,11 +251,22 @@
       return JSON.parse(new TextDecoder().decode(bytes));
     }catch(e){return null;}
   }
-  function save(){try{localStorage.setItem('mitooshi_steps',JSON.stringify({t:document.getElementById('ttitle').value,items:items}));}catch(e){}}
+  function save(){try{localStorage.setItem('mitooshi_steps',JSON.stringify({t:document.getElementById('ttitle').value,items:items,sz:size}));}catch(e){}}
+  // カードの大きさ。クラスを steplist に付けるだけにして、画面・印刷・画像保存の
+  // 3経路が自動で同じ見た目になるようにしている。
+  function setSize(s){
+    if(s!=='s'&&s!=='m'&&s!=='l')s='m';
+    size=s;
+    slist.className='steplist'+(s==='m'?'':' sz-'+s);
+    document.querySelectorAll('.szbtn').forEach(function(b){b.classList.toggle('on',b.dataset.sz===s);});
+  }
   // 共有URLを作ってクリップボードに入れる。navigator.share がある端末では
   // 共有シートを出す（スマホでLINEに渡す動線がこれで一気に短くなる）。
   function buildShareUrl(){
     var st={t:document.getElementById('ttitle').value,items:items};
+    // 大きさは「中」以外のときだけ載せる。URLを短く保ちつつ、
+    // この項目を知らない古い版で開いても無視されるだけで壊れない。
+    if(size!=='m')st.sz=size;
     return location.origin+location.pathname+'#s='+encodeState(st);
   }
   function onShare(){
@@ -299,11 +348,50 @@
     if(!d||!d.items)return false;
     items=d.items;
     if(d.t)document.getElementById('ttitle').value=d.t;
+    if(d.sz)setSize(d.sz);
     return true;
   }
-  function load(){try{var d=JSON.parse(localStorage.getItem('mitooshi_steps')||'null');if(d&&d.items){items=d.items;if(d.t)document.getElementById('ttitle').value=d.t;}}catch(e){}}
+  function load(){try{var d=JSON.parse(localStorage.getItem('mitooshi_steps')||'null');if(d&&d.items){items=d.items;if(d.t)document.getElementById('ttitle').value=d.t;if(d.sz)setSize(d.sz);}}catch(e){}}
   (function(){var box=document.getElementById('tmpl');TMPL.forEach(function(tp){var b=document.createElement('button');b.type='button';b.textContent=tp.label;b.addEventListener('click',function(){document.getElementById('ttitle').value=tp.title;items=tp.steps.map(function(s){return {e:s[0],t:s[1],done:false};});render();save();});box.appendChild(b);});})();
-  (function(){var box=document.getElementById('emopick');EMO.forEach(function(e,i){var b=document.createElement('button');b.type='button';b.className='emobtn'+(i===0?' on':'');b.textContent=e;b.addEventListener('click',function(){pickEmo=e;box.querySelectorAll('.emobtn').forEach(function(x){x.classList.remove('on');});b.classList.add('on');});box.appendChild(b);});})();
+  // 絵えらび：カテゴリのチップと、選んだカテゴリの絵文字グリッド
+  (function(){
+    var cats=document.getElementById('emocats'), grid=document.getElementById('emopick');
+    var active=0;
+    function renderGrid(){
+      grid.innerHTML='';
+      EMOCATS[active][1].forEach(function(e){
+        var b=document.createElement('button');
+        b.type='button';
+        b.className='emobtn'+(e===pickEmo?' on':'');
+        b.textContent=e;
+        b.addEventListener('click',function(){
+          pickEmo=e;
+          document.getElementById('nemo').value='';
+          grid.querySelectorAll('.emobtn').forEach(function(x){x.classList.remove('on');});
+          b.classList.add('on');
+        });
+        grid.appendChild(b);
+      });
+    }
+    EMOCATS.forEach(function(c,i){
+      var b=document.createElement('button');
+      b.type='button';
+      b.className='ecat'+(i===0?' on':'');
+      b.textContent=c[0];
+      b.addEventListener('click',function(){
+        active=i;
+        cats.querySelectorAll('.ecat').forEach(function(x){x.classList.remove('on');});
+        b.classList.add('on');
+        renderGrid();
+      });
+      cats.appendChild(b);
+    });
+    renderGrid();
+  })();
+  // 大きさの切り替え
+  document.querySelectorAll('.szbtn').forEach(function(b){
+    b.addEventListener('click',function(){setSize(b.dataset.sz);save();});
+  });
   function nextIdx(){for(var i=0;i<items.length;i++){if(!items[i].done)return i;}return -1;}
   function render(){
     slist.innerHTML='';empty.style.display=items.length?'none':'';
@@ -321,7 +409,14 @@
     });
     cel.hidden=!(items.length>0 && ni===-1);
   }
-  document.getElementById('addBtn').addEventListener('click',function(){var t=document.getElementById('ntext').value.trim();if(!t){say('てじゅんを入れてね。');return;}items.push({e:pickEmo,t:t,done:false});document.getElementById('ntext').value='';render();save();say('');});
+  document.getElementById('addBtn').addEventListener('click',function(){
+    var t=document.getElementById('ntext').value.trim();
+    if(!t){say('てじゅんを入れてね。');return;}
+    // 自由入力欄に絵文字があればそちらを優先。無ければ選択中のマークを使う
+    var free=document.getElementById('nemo').value.trim();
+    items.push({e:free||pickEmo,t:t,done:false});
+    document.getElementById('ntext').value='';render();save();say('');
+  });
   document.getElementById('ntext').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('addBtn').click();});
   document.getElementById('printBtn').addEventListener('click',function(){window.print();});
   document.getElementById('clearBtn').addEventListener('click',function(){if(!items.length)return;if(confirm('ぜんぶ消しますか？')){items=[];render();save();}});
@@ -335,7 +430,7 @@
   document.getElementById('shareBtn').addEventListener('click',onShare);
   document.getElementById('pngBtn').addEventListener('click',exportPng);
   render();
-  window.__tool={loadTemplate:function(idx){var tp=TMPL[idx]||TMPL[0];document.getElementById('ttitle').value=tp.title;items=tp.steps.map(function(s){return {e:s[0],t:s[1],done:false};});render();},add:function(e,t){items.push({e:e,t:t,done:false});render();},count:function(){return items.length;},next:function(){return nextIdx();},complete:function(i){items[i].done=true;render();},celebrating:function(){return !cel.hidden;}};
+  window.__tool={loadTemplate:function(idx){var tp=TMPL[idx]||TMPL[0];document.getElementById('ttitle').value=tp.title;items=tp.steps.map(function(s){return {e:s[0],t:s[1],done:false};});render();},add:function(e,t){items.push({e:e,t:t,done:false});render();},count:function(){return items.length;},next:function(){return nextIdx();},complete:function(i){items[i].done=true;render();},celebrating:function(){return !cel.hidden;},setSize:setSize,size:function(){return size;},shareUrl:buildShareUrl,emojiTotal:function(){return EMOCATS.reduce(function(n,c){return n+c[1].length;},0);}};
 })();</script>
 <!-- pwa:start -->
 <script>
